@@ -4,9 +4,9 @@
     
     // Declaring global varibales
     export let title;
-    const auth = getAuth()  
+    const auth = getAuth();
   
-    function login()
+    function Login()
     {
         // Declaring local variables to grab info from UI 
         // Variables will be used to authenticate user
@@ -49,7 +49,7 @@
     <div class="card">
       <div class="card-body login-form">
         <h5 class="card-title">{title}</h5>
-        <form on:submit|preventDefault={login}>
+        <form on:submit|preventDefault={Login}>
           <div class="mb-3">
             <label for="login-email-input" class="form-label">Email address</label>
             <input
@@ -85,6 +85,9 @@
     </div>
   </div>
   
+
+
+
   <style>
     .card {
       width: 50%;
