@@ -19,6 +19,10 @@
           createdAt: Date.now(),
         });
         // Waiting to catch errors
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
     // Handling form submission. Passing AddUser() as well as relevant variables.
     const handleSubmit = () => {
@@ -68,3 +72,4 @@
     </div>
   </div>
 </div>
+
