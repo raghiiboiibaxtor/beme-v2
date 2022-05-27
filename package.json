@@ -13,5 +13,10 @@
 		"@sveltejs/kit": "next",
 		"svelte": "^3.44.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"firebase": "^9.8.1",
+		"goto": "^0.2.0",
+		"svelte-forms-lib": "^2.0.1"
+	}
 }
