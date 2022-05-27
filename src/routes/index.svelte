@@ -1,5 +1,5 @@
 <script>
-import {firestore} from "./firebase/firebase.js";
+
 
 
 
