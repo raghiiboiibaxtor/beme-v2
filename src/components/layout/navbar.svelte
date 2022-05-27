@@ -29,7 +29,7 @@
             <a class="nav-link" target="_self" href="/portfolio"
               >Portfolio Page</a>
         </li> 
-        {#if $isLoggedIn} // Conditional logic using IfBlock from svelte
+         // Conditional logic using IfBlock from svelte
         <li class="nav-item">
           <a
             class="nav-link"
@@ -38,5 +38,5 @@
             href="/">Sign Out</a
           >
         </li>
-      {/if}
+      
       </ul>

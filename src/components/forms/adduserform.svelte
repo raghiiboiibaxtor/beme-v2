@@ -12,7 +12,7 @@
 
     /* Adding User to Firestore *
      *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */
-    const addUser = async () => {
+    const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {
           ..._userinfo,
@@ -24,9 +24,9 @@
       }
     };
 
-    // Handling form submission. Passing AddUser() as well as relevant variables.
+    // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
     const handleSubmit = () => {
-      addUser();
+      addUserToFirestore();
       _userinfo = { firstname: "", lastname: "" };
       inputElement.focus();
     };
