@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+import {firestore} from "./firebase/firebase.js";
+
+
+
+</script>
+
+<h1> This is the home page </h1>
