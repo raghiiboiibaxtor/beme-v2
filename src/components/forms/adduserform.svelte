@@ -41,6 +41,7 @@
       <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
       <form on:submit|preventDefault={handleSubmit} class="card card-body p-5">
         <div class="mb-3">
+            <h5 class="card-title">Add User To Firestore</h5>
           <label for="title" class="fs-5 text-secondary">Firstname</label>
           <!-- Binding firestore variables to ui and grabbing user entered text -->
           <input
