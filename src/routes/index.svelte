@@ -1,12 +1,7 @@
 <script>
-import Navbar from '../components/layout/navbar.svelte';
-import Sidebar from '../components/layout/sidebar.svelte';
-
-let open = false
-
+	import Navbar from "../components/layout/navbar.svelte";
 </script>
 
-<Sidebar bind:open/>
 <Navbar/>
-<h1> This is the home page </h1>
 
+<h1> Home</h1>
