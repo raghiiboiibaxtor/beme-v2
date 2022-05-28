@@ -77,3 +77,18 @@ h1{
 button{
   background: white;
 }
+
+:root{
+	--primary: #709CD4;
+	--light: #F6F8FF;
+	--dark: #6578B7;
+
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+ 	font-family: 'Inter', sans-serif;
+	font-size: 18px;
+}

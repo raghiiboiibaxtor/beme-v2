@@ -5,8 +5,9 @@
     import { getAuth, onAuthStateChanged } from 'firebase/auth';
     import { goto } from '$app/navigation';
     import {isLoggedIn} from './stores/authstore.js';
-    //import Navbar from '../components/layout/navbar.svelte';
+    import Navbar from '../components/layout/navbar.svelte';
     //import Header from '../components/layout/header.svelte';
+   
     
     // Mounting authentication. 
     // Grabbing getAuth() variable from Firebase and passing it locally to auth
@@ -27,5 +28,7 @@
         })
     })
     </script>
-
+   
+   
+    
     <slot/> 
