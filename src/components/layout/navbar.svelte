@@ -29,7 +29,7 @@
             <a class="nav-link" target="_self" href="/portfolio"
               >Portfolio Page</a>
         </li> 
-         // Conditional logic using IfBlock from svelte
+         
         <li class="nav-item">
           <a
             class="nav-link"
