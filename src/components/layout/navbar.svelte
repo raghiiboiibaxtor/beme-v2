@@ -18,26 +18,14 @@
 
     let active = false;
     let menu = false;
+    let clicked = false;
    
-    </script>
+</script>
 
 
 <!-- HTML Navbar Begins -->
-
   <nav class="top-nav">
-
     <div class="top-nav-container">
-      
-
-      <div class="top-nav-menu" class:active={menu}>
-        <a class="active-nav-link" aria-current="page" href="/">Home</a>
-        <a class="nav-link" target="_self" href="/profile"
-        >Profile Page</a>
-        <a class="nav-link" target="_self" href="/portfolio"
-        >Portfolio Page</a>
-        <a class="nav-link" on:click|preventDefault={Logout} target="_self" href="/">Sign Out</a>
-      </div>
-  
       <button class="hamburger" class:active={active} on:click={() => active = !active} on:click={() => menu = !menu}> 
         <span></span>
         <span></span>
@@ -49,9 +37,20 @@
       <button class="share-portfolio-button"> Share</button>
 
     </div>
-    
+  {#if active == true}
+  <div class="top-nav-background">
+    <div class="top-nav-menu">
+      <a class="nav-link" class:active={clicked} aria-current="page" href="/">Home</a>
+      <a class="nav-link" target="_self" href="/profile"
+      >Profile Page</a>
+      <a class="nav-link" target="_self" href="/portfolio"
+      >Portfolio Page</a>
+      <a class="nav-link" on:click|preventDefault={Logout} target="_self" href="/">Sign Out</a>
+    </div>
+  </div>
+{/if}
   </nav>
-
+  
 
   <style>
     .beme-top-logo{
@@ -75,12 +74,12 @@
 
 
     .top-nav-container{
-	width: 100%;
-	margin: 0 auto;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
 
 nav{
@@ -151,9 +150,51 @@ nav{
 	transform: translateX(15px);
 }
 
-.top-nav-menu{
-	display: none;
+.top-nav-background{
+  height: 100vh;
 }
+
+.top-nav-menu{
+  margin-top: 5.23rem;
+  margin-left: 2.23rem;
+  height: 55%;
+	display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 4s;
+  scroll-behavior: none;
+}
+
+.top-nav-menu a {
+  width: 8rem;
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 18px;
+  width: 23rem;
+  height: 2.3rem;
+}
+
+.nav-link{
+ 
+  width: 8rem;
+  height: auto;
+  text-decoration: none;
+}
+
+.nav-link:hover{
+  width: 23rem;
+  height: 2.3rem;
+  background-image: linear-gradient(
+             45deg,
+             hsl(237deg 81% 60%) 0%,
+             hsl(218deg 94% 54%) 20%,
+             hsl(210deg 100% 50%) 40%,
+             hsl(205deg 100% 50%) 60%,
+             hsl(201deg 100% 50%) 80%,
+             hsl(202deg 100% 61%) 100% );
+  border-radius: 23rem;
+}
+
 
 @media (min-width: 777px){
   .hamburger{
