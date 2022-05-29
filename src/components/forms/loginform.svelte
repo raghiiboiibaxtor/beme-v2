@@ -1,6 +1,7 @@
 <script>
     import {goto} from '$app/navigation';
     import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+    import '../../../src/global.css';
     
     // Declaring global varibales
     export let title;
@@ -44,8 +45,13 @@
     }
   
   </script>
-  
+  <body>
+    
+ 
+  <div class="page-template">
   <div class="login">
+    <h1 id='local-h1'> Everything you need in one place. </h1>
+    <h3 id='local-h3'> Build and share your portfolio with the click of a button. </h3>
     <div class="card">
       <div class="card-body login-form">
         <h5 class="card-title">{title}</h5>
@@ -84,14 +90,25 @@
       </div>
     </div>
   </div>
-  
-
+</div>
+</body>
 
 
   <style>
+    .page-template{
+
+}
+
+    .login{
+	    width: 100%;
+	    background-color: var(--light);
+	    height: 100vh;
+    }
+
     .card {
       width: 50%;
       margin: 0 auto;
+      
     }
     .login {
       margin-top: 50px;
