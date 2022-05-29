@@ -7,7 +7,7 @@ html, body {
 }
 
 
-:global(body) {
+body{
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
@@ -52,9 +52,7 @@ input[type="range"] {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+	border-radius: 23rem;
 }
 
 button:disabled {
@@ -86,6 +84,7 @@ button{
 	--primary: #709CD4;
 	--light: #F6F8FF;
 	--dark: #6578B7;
+
 }
 
 * {

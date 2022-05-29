@@ -19,6 +19,7 @@
   let clicked = false;
   let menu = false;
   let current = 'Profile';
+  
 
 </script>
 
