@@ -27,5 +27,11 @@
     });
   });
 </script>
-
+<Navbar/>
 <slot />
+
+<style>
+  :global(body) {
+    background-color:var(--light);
+  }
+  </style>

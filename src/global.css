@@ -1,15 +1,18 @@
+
 html, body {
 	position: relative;
 	width: 100%;
-	height: 100%;
+	height: 95%;
+	background-color: var(--light);
 }
 
-body {
-	color: #333;
+
+:global(body) {
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: 'Inter', sans-serif;
+	background-color: var(--dark);
 }
 
 a {
@@ -67,7 +70,7 @@ button:focus {
 
 /* extra styles */
 body{
-  color: #777;
+  
   background: #eee;
   padding: 0;
 }
@@ -82,13 +85,16 @@ button{
 	--primary: #709CD4;
 	--light: #F6F8FF;
 	--dark: #6578B7;
-
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
- 	font-family: 'Inter', sans-serif;
+	font-family: 'Inter', sans-serif;
 	font-size: 18px;
+}
+
+.page-template{
+	background-color: var(--light);
 }

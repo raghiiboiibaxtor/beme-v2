@@ -2,8 +2,8 @@
   import {goto} from '$app/navigation';
   import {getAuth, signOut} from "firebase/auth";
   import {isLoggedIn} from '../../routes/stores/authstore.js';
-
   import '../../../src/global.css';
+  import {page} from '$app/stores';
 
   const auth = getAuth(); // Setting constant variable to get the returned value from getAuth function.
   
@@ -16,17 +16,17 @@
   .catch((error) => {console.error(error)})
   }
 
-  let active = false;
-  let menu = false;
   let clicked = false;
+  let menu = false;
  
+  console.log($page);
 </script>
 
 
 <!-- HTML Navbar Begins -->
 <nav class="top-nav">
   <div class="top-nav-container">
-    <button class="hamburger" class:active={active} on:click={() => active = !active} on:click={() => menu = !menu}> 
+    <button class="hamburger" class:active={clicked} on:click={() => clicked = !clicked} on:click={() => menu = !menu}> 
       <span></span>
       <span></span>
       <span></span>
@@ -37,15 +37,13 @@
     <button class="share-portfolio-button"> Share</button>
 
   </div>
-{#if active == true}
+{#if clicked == true}
 <div class="top-nav-background">
   <div class="top-nav-menu">
-    <a class="nav-link" class:active={clicked} aria-current="page" href="/">Home</a>
-    <a class="nav-link" target="_self" href="/profile"
-    >Profile Page</a>
-    <a class="nav-link" target="_self" href="/portfolio"
-    >Portfolio Page</a>
-    <a class="nav-link" on:click|preventDefault={Logout} target="_self" href="/">Sign Out</a>
+    <input class="active" type="button" onclick="location.href='/';" value="Profile"/>
+    <input class="nav-buttons-unclicked" type="button" onclick="location.href='/mywork';" value="My Work" />
+    <input class="nav-buttons-unclicked" type="button" onclick="location.href='/portfolio';" value="Portfolio" />
+    <input class="nav-buttons-unclicked" type="button" onclick="location.href='/login';" on:click|preventDefault={Logout} value="Logout"/>
   </div>
 </div>
 {/if}
@@ -69,7 +67,7 @@
     border: none;
     padding: 0.44rem;
     margin-top: 0.23rem;
-    margin-right: 1.23rem;
+    
   }
 
 
@@ -79,6 +77,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-left: 0.88rem;
+    padding-right: 0.88rem;
+    padding-bottom: 0.55rem;
   }
 
 
@@ -89,7 +90,7 @@ left: 0;
 right: 0;
 z-index: 99;
 background-color: var(--light);
-padding: 8px;
+padding-top: 0.55rem;
 box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
 border-radius: 0px 0px 44px 0px;
 }
@@ -112,7 +113,6 @@ width: 33px;
 height: 4px;
 margin-top: 3px;
 position: relative;
-
 background-image: linear-gradient(
            45deg,
            hsl(237deg 81% 60%) 0%,
@@ -128,8 +128,8 @@ transition: 0.4s;
 }
 
 .hamburger span:nth-child(2){
-width: 44px;
-height: 5.23px
+ width: 44px;
+ height: 8.23px
 }
 
 .hamburger:hover span:nth-child(2){
@@ -142,7 +142,7 @@ transform: translate(5px, 0px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2){
-transform: translate(0px, 16px) rotate(-45deg);
+transform: translate(-3px, 18px) rotate(-45deg);
 }
 
 .hamburger.active span:nth-child(3){
@@ -150,14 +150,17 @@ opacity: 0;
 transform: translateX(15px);
 }
 
+
+
 .top-nav-background{
 height: 100vh;
 }
 
 .top-nav-menu{
 margin-top: 5.23rem;
-margin-left: 2.23rem;
-height: 55%;
+margin-left: 1.23rem;
+margin-right: 1.23rem;
+height: 23%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -165,26 +168,25 @@ transition: 4s;
 scroll-behavior: none;
 }
 
-.top-nav-menu a {
-width: 8rem;
-color: var(--primary);
-font-weight: 500;
-font-size: 18px;
-width: 23rem;
-height: 2.3rem;
-}
 
 .nav-link{
-
 width: 8rem;
 height: auto;
 text-decoration: none;
 }
 
-.nav-link:hover{
-width: 23rem;
-height: 2.3rem;
-background-image: linear-gradient(
+
+.top-nav-menu input.active{
+  height: 3.23rem;
+  padding-left: 3.23rem;
+  text-align: left;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.023rem;
+  background-image: linear-gradient(
            45deg,
            hsl(237deg 81% 60%) 0%,
            hsl(218deg 94% 54%) 20%,
@@ -192,9 +194,22 @@ background-image: linear-gradient(
            hsl(205deg 100% 50%) 60%,
            hsl(201deg 100% 50%) 80%,
            hsl(202deg 100% 61%) 100% );
-border-radius: 23rem;
+  border-radius: 23rem;
 }
 
+.nav-buttons-unclicked{
+  height: 3.23rem;
+  padding-left: 3.23rem;
+  text-align: left;
+  color: var(--primary);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.023rem;
+  border: none;
+  border-radius: 23rem;
+}
 
 @media (min-width: 777px){
 .hamburger{
