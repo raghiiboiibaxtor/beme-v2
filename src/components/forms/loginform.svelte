@@ -80,7 +80,7 @@
               placeholder="Password"
             />
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="button">Submit</button>
         </form>
         {#if title == "Login"}
           <p class="float-end mt-3">
@@ -96,28 +96,58 @@
 
   <style>
     .page-template{
-
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: 1.23rem;
 }
 
     .login{
+      color: var(--dark);
+      font-weight: 500;
 	    width: 100%;
 	    background-color: var(--light);
 	    height: 100vh;
     }
 
     .card {
-      width: 50%;
+      width: 100%;
       margin: 0 auto;
       
     }
-    .login {
-      margin-top: 50px;
-      margin-bottom: 50px;
+
+    .button{
+     
+      font-size: medium;
+      margin-top: 1.23rem;
+      color: white;
+      background-image: linear-gradient(
+      45deg,
+      hsl(237deg 81% 60%) 0%,
+      hsl(218deg 94% 54%) 20%,
+      hsl(210deg 100% 50%) 40%,
+      hsl(205deg 100% 50%) 60%,
+      hsl(201deg 100% 50%) 80%,
+      hsl(202deg 100% 61%) 100% );
     }
+  
     .login-form {
-      width: 60%;
+      width: 100%;
       margin: 0 auto;
+      padding-top: 4.23rem;
     }
+
+    input{
+  
+      height: 3.23rem;
+      width: 100%;
+      background: 
+        linear-gradient(var(--light), var(--light)) padding-box,
+        linear-gradient(90deg, #5271FF 0%, #38B6FF 100%) border-box;
+      border-radius: 23rem;
+      border: 1.23px solid transparent;
+    }
+    
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
       .login-form {
         width: 90%;

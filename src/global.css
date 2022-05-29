@@ -7,7 +7,7 @@ html, body {
 }
 
 
-:global(body) {
+body{
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
@@ -36,9 +36,9 @@ input, button, select, textarea {
 	font-family: inherit;
 	font-size: inherit;
 	padding: 0.4em;
-	margin: 0 0 0.5em 0;
+	margin: 0 0 0 0;
 	box-sizing: border-box;
-	border: 1px solid #ccc;
+	border: 1px solid;
 	border-radius: 2px;
 	
 }
@@ -52,13 +52,14 @@ input[type="range"] {
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+	height: 3.23rem;
+	border: none;
+	border-radius: 23rem;
+	width: 10.23rem;
 }
 
 button:disabled {
-	color: #999;
+	border: none;
 }
 
 button:not(:disabled):active {
@@ -66,7 +67,7 @@ button:not(:disabled):active {
 }
 
 button:focus {
-	border-color: #666;
+	border: none;
 }
 
 /* extra styles */
@@ -86,6 +87,7 @@ button{
 	--primary: #709CD4;
 	--light: #F6F8FF;
 	--dark: #6578B7;
+
 }
 
 * {
