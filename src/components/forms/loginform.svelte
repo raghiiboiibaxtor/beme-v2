@@ -103,6 +103,8 @@
 }
 
     .login{
+      color: var(--dark);
+      font-weight: 500;
 	    width: 100%;
 	    background-color: var(--light);
 	    height: 100vh;
@@ -117,8 +119,8 @@
     .button{
      
       font-size: medium;
-      width: 8.23rem;
-      height: 3.23rem;
+      margin-top: 1.23rem;
+      color: white;
       background-image: linear-gradient(
       45deg,
       hsl(237deg 81% 60%) 0%,
@@ -136,12 +138,14 @@
     }
 
     input{
+  
+      height: 3.23rem;
       width: 100%;
       background: 
         linear-gradient(var(--light), var(--light)) padding-box,
         linear-gradient(90deg, #5271FF 0%, #38B6FF 100%) border-box;
       border-radius: 23rem;
-      border: 2.23px solid transparent;
+      border: 1.23px solid transparent;
     }
     
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

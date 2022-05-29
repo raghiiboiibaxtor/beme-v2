@@ -19,7 +19,7 @@
   let clicked = false;
   let menu = false;
   let current = 'Profile';
-  
+
 
 </script>
 
@@ -50,8 +50,8 @@
         <button onclick="location.href='/portfolio';" class="{current === 'Portfolio' ? 'selected' : ''}"
         on:click="{() => current = 'Portfolio'}">Portfolio</button>
 
-        <button onclick="location.href='/login';" class="{current === 'Login' ? 'selected' : ''}"
-        on:click="{() => current = 'Login'}" on:click|preventDefault={Logout} >Login</button>
+        <button onclick="location.href='/login';" class="{current === 'Logout' ? 'selected' : ''}"
+        on:click="{() => current = 'Logout'}" on:click|preventDefault={Logout} >Logout</button>
   </div>
 </div>
 {/if}
