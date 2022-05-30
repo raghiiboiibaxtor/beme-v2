@@ -4,6 +4,10 @@
 </script>
 
 <div class="page-template">
-<LoginForm title="Login"></LoginForm>
+<LoginForm title="Enter your details to login."></LoginForm>
 </div>
 
+<style>
+
+
+</style>
