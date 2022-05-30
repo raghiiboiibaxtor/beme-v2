@@ -182,14 +182,6 @@
     }
 
     .button:hover{
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 700;
-      letter-spacing: 0.23px;
-      width: 8.23rem;
-      font-size: medium;
-      margin-top: 1.23rem;
-      color: white;
       opacity: 88%;
     }
   
