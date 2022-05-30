@@ -33,7 +33,7 @@ label {
 }
 
 input, button, select, textarea {
-	font-family: inherit;
+	font-family: 'Inter', sans-serif;
 	font-size: inherit;
 	padding: 0.4em;
 	margin: 0 0 0 0;
@@ -47,6 +47,10 @@ input:disabled {
 	color: #ccc;
 }
 
+input:focus{
+	border: none;
+}
+
 input[type="range"] {
 	height: 0;
 }
@@ -55,7 +59,7 @@ button {
 	height: 3.23rem;
 	border: none;
 	border-radius: 23rem;
-	width: 10.23rem;
+	
 }
 
 button:disabled {
@@ -84,10 +88,13 @@ button{
 }
 
 :root{
+
 	--primary: #709CD4;
 	--light: #F6F8FF;
 	--dark: #6578B7;
-
+	--lighttext: #BDD1F9;
+	--purple: #5271FF;
+	--blue: #38B6FF;
 }
 
 * {

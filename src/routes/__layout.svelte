@@ -34,11 +34,17 @@
 {#if login === true}
 <Navbar/>
 {/if}
-
+<img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
 <slot />
 
 <style>
   :global(body) {
     background-color:var(--light);
   }
+.beme-login-logo{
+  margin-left: 1.23rem;
+  margin-top: 1.23rem;
+  width: 5.23rem;
+  height: auto;
+}
   </style>
