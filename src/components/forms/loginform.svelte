@@ -118,7 +118,9 @@
 
     #local-h1{
       margin-top: 1.23rem;
-      color: var(--dark);
+      background: -webkit-linear-gradient(45deg, #5271FF, #38B6FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       font-family: 'Montserrat';
       font-style: normal;
       font-weight: 700;
@@ -166,7 +168,7 @@
       letter-spacing: 0.23px;
       width: 15rem;
       font-size: large;
-      margin-top: 3.23rem;
+      margin-top: 2.23rem;
       color: white;
       background-image: linear-gradient(
       45deg,
@@ -194,7 +196,7 @@
     .login-form {
       width: 100%;
       margin: 0 auto;
-      padding-top: 1.23rem;
+      padding-top: 0.55rem;
     }
 
     input{
@@ -206,7 +208,7 @@
         linear-gradient(var(--light), var(--light)) padding-box,
         linear-gradient(90deg, #5271FF 0%, #38B6FF 100%) border-box;
       border-radius: 23rem;
-      border: 2.3px solid transparent;
+      border: 1.88px solid transparent;
       width: 100%;
       color: var(--dark);
       font-size: large;
