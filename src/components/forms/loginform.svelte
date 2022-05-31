@@ -14,7 +14,7 @@
         let email = document.getElementById('login-email-input').value;
         let password = document.getElementById('login-password-input').value;
         // If title & login match, authenticate the user and sign them in using Firebase Auth SDKs & Cloud Functions
-        if (title == "Login"){
+        if (title == "Enter your details to login."){
             signInWithEmailAndPassword(auth, email, password) // Signing user in
             // Promise (.then) is resolved
             .then((userCredential)=>{
@@ -51,7 +51,7 @@
   <div class="page-template">
   <div class="login">
     <h1 id='local-h1'> Everything you need in one place. </h1>
-    <h3 id='local-h3'> Build and share your portfolio with the click of a button. </h3>
+    <h3 id='local-h3'> Build and share your portfolio with ease. </h3>
     <div class="card">
       <div class="card-body login-form">
         <form on:submit|preventDefault={Login}>
@@ -81,17 +81,20 @@
             />
           </div>
           <div class="horizontal-flex">
-          <button type="submit" class="button">Submit</button></div>
+              {#if title == "Enter your details to login."}
+            <div class="button-signup">
+              <a href="/signup"  class="signup-text">Sign Up</a>
+              </div>
+              {/if}
+          <button type="submit" class="button">Let's Go!</button>
+        </div>
         </form>
-        {#if title == "Login"}
-          <p class="float-end mt-3">
-            Not a user? <a href="/signup"  class="card-link">Sign Up</a>
-          </p>
-        {/if}
+      
       </div>
     </div>
   </div>
 </div>
+<img class="beme-water-img" src="src/content/images/bemeWater.png" alt="BeMe Logo">
 </body>
 
 
@@ -107,7 +110,6 @@
       color: var(--dark);
       font-weight: 500;
 	    width: 100%;
-	    height: 100vh;
     }
 
     .card {
@@ -132,20 +134,21 @@
       margin-top: 1.23rem;
       font-family: 'Montserrat';
       font-style: normal;
-      font-weight: 300;
-      font-size: 1.23rem;
+      font-weight: 400;
+      font-size: 1rem;
     }
 
     .card-title, #emailHelp{
       font-family: 'Montserrat';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-size: 0.77rem;
       margin-bottom: 1.23rem;
+      margin-top: 0.23rem;
     }
 
     form{
-      margin-top: 1.23rem;
+      margin-top: 0.88rem;
       width: 100%;
     }
 
@@ -158,7 +161,9 @@
       font-weight: 700;
       font-size: 0.77rem;
       letter-spacing: 0.23px;
-      color: var(--dark);
+      background: -webkit-linear-gradient(45deg, #5271FF, #38B6FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .button{
@@ -166,7 +171,7 @@
       font-style: normal;
       font-weight: 700;
       letter-spacing: 0.23px;
-      width: 15rem;
+      width: 100%;
       font-size: large;
       margin-top: 2.23rem;
       color: white;
@@ -179,12 +184,41 @@
       hsl(201deg 100% 50%) 80%,
       hsl(202deg 100% 61%) 100% );
       border-radius: 23rem;
+      text-align: right;
+      padding-right: 2.23rem;
     }
 
     .button:hover{
       opacity: 88%;
     }
   
+
+    .button-signup{
+      padding-top: 0.7rem;
+      background: -webkit-linear-gradient(45deg, #5271FF, #38B6FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border: 1.88px solid var(--lighttext);
+      width: 10.23rem;
+      margin-top: 2.23rem;
+      border-radius: 0.55rem;
+      text-align: left;
+      padding-left:1rem;
+      margin-right: 1.23rem;
+    }
+
+    .button-signup:hover{
+      border-radius: 23rem;
+    }
+
+    .signup-text{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 0.23px;
+      font-size: large;
+    }
+
     .login-form {
       width: 100%;
       margin: 0 auto;
@@ -202,7 +236,7 @@
       border-radius: 23rem;
       border: 1.88px solid transparent;
       width: 100%;
-      color: var(--dark);
+      color: var(--purple);
       font-size: large;
     }
 
@@ -222,8 +256,21 @@
     .horizontal-flex{
       display: flex;
       justify-content: flex-end;
+      justify-content: space-between;
+      
     }
 
+    .card-link{
+      margin-left:0.88rem;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .beme-water-img{
+      margin-top: 1.23rem;
+      height: 88%;
+    }
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
       .login-form {
