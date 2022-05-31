@@ -3,4 +3,4 @@
 </script>
 
 
-<LoginForm title="Sign Up"></LoginForm>
+<LoginForm title="Create an account with BeMe."></LoginForm>
