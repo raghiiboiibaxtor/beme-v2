@@ -14,7 +14,8 @@
       field_of_interest: "",
       level_experience: "",
       professional_goals: "",
-      
+      skills:{skill1:"",skill2:"",skill3:""}
+
 
     };
 
@@ -33,15 +34,6 @@
         console.error(error);
       }
     };
-
-    /*delete data
-
-    const userref = doc(db, 'Database', 'CkSkBSyoa6uhI18ABAnr');
-
-    // Remove the Skills
-      updateDoc(userref, {
-        middle: deleteField()
-    });*/
 
     // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
     const handleSubmit = () => {
@@ -126,7 +118,7 @@
 
         <div class="mb-7">
           <label for="description" class="fs-5 text-secondary"
-            >Professional Goals</label
+            >Skill</label
           >
           <input
             type="text"
@@ -137,6 +129,40 @@
           />
         </div>
 
+        <h5 class="card-title"> Add your top 2 skills <br></h5>
+        <div class="mb-8">
+          <label for="description" class="fs-5 text-secondary"
+            >Skill 1</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.skills.skill1}
+            bind:this={inputElement}
+            class="form-control"
+          />
+        </div>
+        <div class="mb-9">
+          <label for="description" class="fs-5 text-secondary"
+            >Skill 2</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.skills.skill2}
+            bind:this={inputElement}
+            class="form-control"
+          />
+        </div>
+        <div class="mb-10">
+          <label for="description" class="fs-5 text-secondary"
+            >Skill 3</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.skills.skill3}
+            bind:this={inputElement}
+            class="form-control"
+          />
+        </div>
 
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
