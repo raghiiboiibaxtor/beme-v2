@@ -5,6 +5,8 @@
     import {collection, addDoc,getDocs} from "firebase/firestore"; // Importing functions from Firestore
 
 
+    //add skills
+    import SortableList from "svelte-sortable-list";
 
     // Creating list of variables that will pass data to Firestore ()
     let _userinfo = {
@@ -14,7 +16,7 @@
       field_of_interest: "",
       level_experience: "",
       professional_goals: "",
-      
+      skills: { Skill1: "", Skill2: "", Skill3: "" }  
 
     };
 
@@ -34,14 +36,17 @@
       }
     };
 
-    /*delete data
 
-    const userref = doc(db, 'Database', 'CkSkBSyoa6uhI18ABAnr');
-
-    // Remove the Skills
-      updateDoc(userref, {
-        middle: deleteField()
-    });*/
+   
+    function addItem() {
+    let date = new Date();
+    _firestore_.collection("").add({ name: skills, pos: date.getTime() });
+  }
+    /*function deleteItem(itemId) {
+    _firestore_.collection("list")
+      .doc(itemId)
+      .delete();
+  }*/
 
     // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
     const handleSubmit = () => {
@@ -50,8 +55,8 @@
       inputElement.focus();
     };
 
-
 </script>
+
 
 <!-- HTML TEMPLATE BEGINS -->
 <div class="container p-4">
@@ -138,11 +143,75 @@
         </div>
 
 
+        <h5 class="card-title"> Add your Top 3 Skills <br></h5>
+         
+        <div class="mb-8">
+          <label for="description" class="fs-5 text-secondary"
+            >Skill 1</label
+          ><input
+          type="text"
+          bind:value={_userinfo.skills.Skill1}
+          bind:this={inputElement}
+          class="form-control"
+        />
+      </div>
+      <div class="mb-9">
+        <label for="description" class="fs-5 text-secondary"
+          >Skill 2</label
+        ><input
+        type="text"
+        bind:value={_userinfo.skills.Skill2}
+        bind:this={inputElement}
+        class="form-control"
+      />
+    </div>
+ 
+    <div class="mb-10">
+      <label for="description" class="fs-5 text-secondary"
+        >Skill 3</label
+      ><input
+      type="text"
+      bind:value={_userinfo.skills.Skill3}
+      bind:this={inputElement}
+      class="form-control"
+    />
+    </div>
+          
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
 
-    
+       <!-- <button on:click={addItem}>Add</button>
+        <input type="text" bind:value={_userinfo.skills} />
+      <SortableList
+        list={_userinfo.skills}
+          key="id"
+          on:sort={updateElementPositions}
+          let:index>
+
+
+          <button on:click={() => deleteItem(_userinfo.skills[index].id)}>X</button>
+          {#if _userinfo.skills[index].editMode == true}
+            <input
+              type="text"
+              value={_userinfo.skills[index].data().name}
+              bind:this={_userinfo.skills[index].inputUpdateEl} />
+            <button
+              on:click={() => {
+                updateItem(_userinfo.skills[index].id, _userinfo.skills[index].inputUpdateEl.value);
+              }}>
+              Update!
+            </button>
+          {:else}
+            <span
+              on:click={() => {
+                _userinfo.skills[index].editMode = true;
+                _userinfo.skills = _userinfo.skills;
+              }}>
+              {_userinfo.skills[index].data().name}
+            </span>
+          {/if}
+        </SortableList>-->
 
       </form>
     </div>
