@@ -1,13 +1,13 @@
 <script>
-  import "../app.css";
+  //import "../app.css";
   // Importing SDKs
   import App from "./firebase/firebase.js";
   import { onMount } from "svelte";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
   import { goto } from "$app/navigation";
   import { isLoggedIn } from "./stores/authstore.js";
-  import Navbar from "../components/layout/navbar.svelte";
-  import Sidebar from "../components/layout/sidebar.svelte";
+  //import Navbar from "../components/layout/navbar.svelte";
+  //import Sidebar from "../components/layout/sidebar.svelte";
  // import Login from "./authenticate/login.svelte";
   import {page} from '$app/stores';
   
@@ -33,24 +33,8 @@
     });
   });
 </script>
+<slot />
 
-
-<div class="page-layout">
-  <div class="top-nav">
-  <Navbar/>
-  </div>
-  <div class="horizontal-flex">
-  <div class="sidebar">
-    <Sidebar/>
-  </div>
-  <div class="page-margin-slot">
-  <div class="page-slot">
-    <slot />
-  </div>
-</div>
-</div>
-<img class="beme-water-img" src="src/content/images/bemeWater.png" alt="BeMe Logo">
-</div>
 
 
 <style>

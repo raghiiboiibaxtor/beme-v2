@@ -11,14 +11,14 @@
   function Logout(){
       signOut(auth)
       .then(() => {localStorage.removeItem("uid");
-      goto('/login');
+      goto('/authenticate/login');
   })
   .catch((error) => {console.error(error)})
   }
 
   let clicked = false;
   let menu = false;
-  let current = 'Portfolio';
+  let current = '/';
   let url = $page.url.pathname;
 
   
@@ -37,8 +37,8 @@
               on:click="{() => current = '/portfolio'}">Portfolio</button>
             </div>
             <div class="bottom-side-nav">
-              <button onclick="location.href='/login';" class="{url === '/login' ? 'selected' : ''}"
-              on:click="{() => current = '/login'}" on:click|preventDefault={Logout} >Logout</button>
+              <button onclick="location.href='/authenticate/login';" class="{url === '/authenticate/login' ? 'selected' : ''}"
+              on:click="{() => current = '/authenticate/login'}" on:click|preventDefault={Logout} >Logout</button>
             </div>
         </div>
 </div>
