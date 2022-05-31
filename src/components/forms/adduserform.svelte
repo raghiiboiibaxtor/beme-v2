@@ -1,11 +1,21 @@
 <script>
+    
+    // add data
     import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {collection, addDoc,} from "firebase/firestore"; // Importing functions from Firestore
+    import {collection, addDoc,getDocs} from "firebase/firestore"; // Importing functions from Firestore
+
+
 
     // Creating list of variables that will pass data to Firestore ()
     let _userinfo = {
       firstname: "",
       lastname: "",
+      currentrole: "",
+      field_of_interest: "",
+      level_experience: "",
+      professional_goals: "",
+      
+
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
@@ -24,6 +34,15 @@
       }
     };
 
+    /*delete data
+
+    const userref = doc(db, 'Database', 'CkSkBSyoa6uhI18ABAnr');
+
+    // Remove the Skills
+      updateDoc(userref, {
+        middle: deleteField()
+    });*/
+
     // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
     const handleSubmit = () => {
       addUserToFirestore();
@@ -41,7 +60,7 @@
       <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
       <form on:submit|preventDefault={handleSubmit} class="card card-body p-5">
         <div class="mb-3">
-            <h5 class="card-title">Add User To Firestore</h5>
+            <h5 class="card-title"> Welcome Your BeMe page <br></h5>
           <label for="title" class="fs-5 text-secondary">Firstname</label>
           <!-- Binding firestore variables to ui and grabbing user entered text -->
           <input
@@ -66,9 +85,65 @@
           />
         </div>
 
+        <div class="mb-4">
+          <label for="description" class="fs-5 text-secondary"
+            >Current Role</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.currentrole}
+            bind:this={inputElement}
+            placeholder="Add your current role"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-5">
+          <label for="description" class="fs-5 text-secondary"
+            >Field of Interest</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.field_of_interest}
+            bind:this={inputElement}
+            placeholder="What are you specialising in now"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-6">
+          <label for="description" class="fs-5 text-secondary"
+            >Level of Experience</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.level_experience}
+            bind:this={inputElement}
+            placeholder="Level of Experience"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-7">
+          <label for="description" class="fs-5 text-secondary"
+            >Professional Goals</label
+          >
+          <input
+            type="text"
+            bind:value={_userinfo.professional_goals}
+            bind:this={inputElement}
+            placeholder="What is your next role"
+            class="form-control"
+          />
+        </div>
+
+
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
+
+    
+
       </form>
     </div>
   </div>
