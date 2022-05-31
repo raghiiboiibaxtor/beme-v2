@@ -2,7 +2,7 @@
     
     // add data
     import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {collection, addDoc,getDocs} from "firebase/firestore"; // Importing functions from Firestore
+    import {collection, addDoc} from "firebase/firestore"; // Importing functions from Firestore
 
 
 
@@ -14,7 +14,7 @@
       field_of_interest: "",
       level_experience: "",
       professional_goals: "",
-      
+      skills:{skill1:"",skill2:"",skill3:""}
 
     };
 
@@ -141,8 +141,7 @@
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
-
-    
+   
 
       </form>
     </div>
