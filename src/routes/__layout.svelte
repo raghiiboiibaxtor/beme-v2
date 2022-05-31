@@ -34,7 +34,10 @@
 {#if login === true}
 <Navbar/>
 {/if}
+{#if login != true}
 <img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
+{/if}
+
 <slot />
 
 <style>
