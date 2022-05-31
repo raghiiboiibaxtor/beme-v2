@@ -17,7 +17,10 @@
       level_experience: "",
       professional_goals: "",
       skills: { Skill1: "", Skill2: "", Skill3: "" }  
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
@@ -141,6 +144,39 @@
             class="form-control"
           />
         </div>
+        <h5 class="card-title"> Add your Top 3 Skills <br></h5>
+         
+        <div class="mb-8">
+          <label for="description" class="fs-5 text-secondary"
+            >Skill 1</label
+          ><input
+          type="text"
+          bind:value={_userinfo.skills.Skill1}
+          bind:this={inputElement}
+          class="form-control"
+        />
+      </div>
+      <div class="mb-9">
+        <label for="description" class="fs-5 text-secondary"
+          >Skill 2</label
+        ><input
+        type="text"
+        bind:value={_userinfo.skills.Skill2}
+        bind:this={inputElement}
+        class="form-control"
+      />
+    </div>
+ 
+    <div class="mb-10">
+      <label for="description" class="fs-5 text-secondary"
+        >Skill 3</label
+      ><input
+      type="text"
+      bind:value={_userinfo.skills.Skill3}
+      bind:this={inputElement}
+      class="form-control"
+    />
+    </div>
 
 
         <h5 class="card-title"> Add your Top 3 Skills <br></h5>
