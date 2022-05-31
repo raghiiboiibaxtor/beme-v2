@@ -1,6 +1,6 @@
 <script>
 
-import {goto} from '$app/navigation';
+  import {goto} from '$app/navigation';
   import {getAuth, signOut} from "firebase/auth";
   import {isLoggedIn} from '../../routes/stores/authstore.js';
   import '../../../src/global.css';

@@ -88,22 +88,21 @@
           <button type="submit" class="button">Let's Go!</button>
         </div>
         </form>
-      
       </div>
     </div>
   </div>
 </div>
-<img class="beme-water-img" src="src/content/images/bemeWater.png" alt="BeMe Logo">
+
 </body>
 
 
   <style>
+
     .page-template{
       display: flex;
       flex-direction: column;
-      width: 100%;
-      padding: 1.23rem;
-}
+      width: 100%;   
+    }
 
     .login{
       color: var(--dark);
@@ -114,7 +113,6 @@
     .card {
       width: 100%;
       margin: 0 auto;
-      
     }
 
     #local-h1{
@@ -270,6 +268,7 @@
       margin-top: 1.23rem;
       height: 88%;
     }
+
 
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
       .login-form {
