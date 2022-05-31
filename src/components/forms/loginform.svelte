@@ -2,7 +2,6 @@
     import {goto} from '$app/navigation';
     import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
     import '../../../src/global.css';
-    
     // Declaring global varibales
     export let title;
     const auth = getAuth();

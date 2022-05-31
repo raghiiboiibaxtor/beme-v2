@@ -7,6 +7,7 @@
   import { goto } from "$app/navigation";
   import { isLoggedIn } from "./stores/authstore.js";
   import Navbar from "../components/layout/navbar.svelte";
+import Sidebar from "../components/layout/sidebar.svelte";
   
   let login = false;
   // Mounting authentication.
@@ -30,24 +31,81 @@
   });
 </script>
 
-<!-- If else to ensure navbar disapears when not logged in.--> 
-{#if login === true}
-<Navbar/>
-{/if}
-{#if login != true}
-<img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
-{/if}
+<div class="page-layout">
+  <div class="top-nav">
+  <Navbar/>
+</div>
+  <div class="horizontal-flex">
+  <div class="sidebar">
+    <Sidebar/>
+  </div>
+  <div class="page-slot">
+    <slot />
+  </div>
+</div>
+</div>
 
-<slot />
+
+
+
 
 <style>
   :global(body) {
     background-color:var(--light);
   }
-.beme-login-logo{
-  margin-left: 1.23rem;
-  margin-top: 1.23rem;
-  width: 5.23rem;
-  height: auto;
+  
+.page-layout{
+ width: 100%;
+ height:100%;
+}
+
+.top-nav{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.horizontal-flex{
+  height:100%;
+  display: flex;
+  
+}
+
+.sidebar{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+}
+
+.page-slot{
+  width: 100%;
+  height: 100%;
+ 
+  margin-left: 10.23rem;
+}
+
+
+
+@media only screen and (max-width: 777px){
+  .sidebar{
+    display: none;
+  }
+
+  .page-slot{
+    margin: 1.23rem;
+}
+
+
 }
   </style>
+
+
+
+
+<!--
+If else to ensure navbar disapears when not logged in.
+{#if login != true}
+<img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
+{/if}
+-->

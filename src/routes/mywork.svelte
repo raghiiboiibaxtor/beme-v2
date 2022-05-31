@@ -1,5 +1,5 @@
 <script>
-
+import Sidebar from '../components/layout/sidebar.svelte';
 
 </script>
 

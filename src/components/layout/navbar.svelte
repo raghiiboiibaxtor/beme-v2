@@ -33,9 +33,11 @@
       <span></span>
     </button>
 
-    <img class="beme-top-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
-
-    <button class="share-portfolio-button"> Share</button>
+    <img class="beme-top-logo" src="src/content/images/BeMeSidebarLogo.png" alt="BeMe Logo">
+    <h1 class="user-title"> Hey Lesedi!</h1>
+    <div class="share-portfolio">
+      <div class="share-icon"></div>
+    <button class="share-portfolio-button"> Share </button></div>
 
   </div>
 {#if clicked == true}
@@ -60,21 +62,21 @@
 
 <style>
   .beme-top-logo{
-    width: 88px;
+    width: 8.8rem;
     height: auto;
   }
 
   .share-portfolio-button{
     font-size: 14px;
     color: var(--light);
-    width: 4rem;
+    width: 12.3rem;
     height:auto;
     background: linear-gradient(90deg, #5271FF 0%, #38B6FF 100%);
     box-shadow: 0px 4px 4px rgba(7, 40, 129, 0.12);
     border-radius: 123px;
     border: none;
     padding: 0.44rem;
-    margin-top: 0.23rem;
+   margin-right: 0.88rem;
     
   }
 
@@ -87,7 +89,18 @@
     justify-content: space-between;
     padding-left: 0.88rem;
     padding-right: 0.88rem;
-    padding-bottom: 0.55rem;
+    padding-bottom: 0.88rem;
+  }
+
+  .user-title{
+    width: 88%;
+    margin-left: 2.23rem;
+    text-align: left;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.3rem;
+    color: var(--dark);
   }
 
 
@@ -210,6 +223,22 @@
   .hamburger{
     display: none;
   }
+
+}
+
+@media only screen and (max-width: 777px){
+  .user-title{
+    display: none;
   }
+
+  .share-portfolio-button{
+    width: 4.4rem;
+  }
+
+  .beme-top-logo{
+    width: 5.5rem;
+  }
+}
+
 
 </style>
