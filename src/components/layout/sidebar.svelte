@@ -56,7 +56,6 @@ import {goto} from '$app/navigation';
 }
 
 .sidenav-menu{
-    margin-top: 2.23rem;
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -64,7 +63,7 @@ import {goto} from '$app/navigation';
 }
 
 .top-sidenav{
-    margin-top: 2.23rem;
+    margin-top: 1.23rem;
     height: 10.23rem;
     display: flex;
     flex-direction: column;
