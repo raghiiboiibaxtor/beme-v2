@@ -7,6 +7,7 @@
   import { goto } from "$app/navigation";
   import { isLoggedIn } from "./stores/authstore.js";
   import Navbar from "../components/layout/navbar.svelte";
+import Sidebar from "../components/layout/sidebar.svelte";
   
   let login = false;
   // Mounting authentication.
@@ -31,12 +32,9 @@
 </script>
 
 
-<!-- If else to ensure navbar disapears when not logged in.--> 
-{#if login != true}
-<img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
-{:else}
 <Navbar/>
-{/if}
+<Sidebar/>
+
 
 <slot />
 
@@ -50,4 +48,15 @@
   width: 5.23rem;
   height: auto;
 }
+
   </style>
+
+
+
+
+<!--
+If else to ensure navbar disapears when not logged in.
+{#if login != true}
+<img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
+{/if}
+-->

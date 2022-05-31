@@ -33,7 +33,7 @@
       <span></span>
     </button>
 
-    <img class="beme-top-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
+    <img class="beme-top-logo" src="src/content/images/BeMeSidebarLogo.png" alt="BeMe Logo">
 
     <button class="share-portfolio-button"> Share</button>
 
@@ -60,21 +60,21 @@
 
 <style>
   .beme-top-logo{
-    width: 88px;
+    width: 8.8rem;
     height: auto;
   }
 
   .share-portfolio-button{
     font-size: 14px;
     color: var(--light);
-    width: 4rem;
+    width: 8rem;
     height:auto;
     background: linear-gradient(90deg, #5271FF 0%, #38B6FF 100%);
     box-shadow: 0px 4px 4px rgba(7, 40, 129, 0.12);
     border-radius: 123px;
     border: none;
     padding: 0.44rem;
-    margin-top: 0.23rem;
+   margin-right: 0.88rem;
     
   }
 
