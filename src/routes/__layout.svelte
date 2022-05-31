@@ -30,12 +30,12 @@
   });
 </script>
 
+
 <!-- If else to ensure navbar disapears when not logged in.--> 
-{#if login === true}
-<Navbar/>
-{/if}
 {#if login != true}
 <img class="beme-login-logo" src="src/content/images/BeMeLogo.png" alt="BeMe Logo">
+{:else}
+<Navbar/>
 {/if}
 
 <slot />
