@@ -11,7 +11,7 @@
       query,
       where,
     } from "firebase/firestore";
-    //import { onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
 
 
     // Creating list of variables that will pass data to Firestore ()
@@ -30,20 +30,17 @@
     let _user = [];
     
 
-    // Reading Data from Firestore
-
-
-
+    // Reading Multiple Documents from Firestore
       const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", "raghiibaxtor@gmail.com"));
       const unsubscribe = onSnapshot(_collection, (querySnapshot) => {
         const _fireuser = [];
         querySnapshot.forEach((doc) => {
-            _fireuser.push(doc.data().email);
+            _fireuser.push(doc.data());
         });
         console.log("Firebase Read Raghii: ", _fireuser.join(", "));
         _user = _fireuser;
       });
-      
+
 
     /* Adding User to Firestore *
      *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
@@ -73,11 +70,12 @@
     };
 
 
-    //onDestroy(grabdata);
+    onDestroy(unsubscribe);
 </script>
 
 
 <h1>{_user}</h1>
+<h1>{_info}</h1>
 <!-- HTML TEMPLATE BEGINS -->
 {#each _user as _info}
 <div class="card card-body mt-2">
