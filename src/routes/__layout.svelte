@@ -39,7 +39,7 @@
   <div class="top-nav">
   <Navbar/>
   </div>
-  <div class="horizontal-flex">
+ 
   <div class="sidebar">
     <Sidebar/>
   </div>
@@ -48,8 +48,6 @@
     <slot />
   </div>
 </div>
-</div>
-<img class="beme-water-img" src="src/content/images/bemeWater.png" alt="BeMe Logo">
 </div>
 
 
@@ -69,14 +67,14 @@
   z-index: 1;
 }
 
-.horizontal-flex{
-  height:100%;
+.page-margin-slot{
+  width:100%;
   display: flex;
   
 }
 
 .sidebar{
-  width: 100%;
+  width: 10.23rem;
   height: 100%;
   position: fixed;
   left: 0;
@@ -85,7 +83,6 @@
 .page-slot{
   width: 100%;
   height: 100%;
- 
   margin-left: 10.23rem;
 }
 
