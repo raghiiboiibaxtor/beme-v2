@@ -6,19 +6,19 @@
       onSnapshot,
       collection,
       addDoc,
-      deleteDoc,
       doc,
-      updateDoc,
       getDoc,
+      query,
+      where,
     } from "firebase/firestore";
     import { onDestroy } from "svelte";
-
 
 
     // Creating list of variables that will pass data to Firestore ()
     let _info = {
       firstname: "",
       lastname: "",
+      email: "",
       currentrole: "",
       field_of_interest: "",
       level_experience: "",
@@ -27,55 +27,23 @@
 
     };
 
-
-    let _user = [];
     let inputElement; // Declaring input element used for binding ui to list variables
-    //let _localemail = localStorage.getItem('email');
-    //let _localuser = window.localStorage.getItem('uid');
+    let _user = [];
+    
+    // Reading Multiple Documents from Firestore
+      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", 'lesedingoma@gmail.com'));
+      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
+        const _fireuser = [];
+        querySnapshot.forEach((doc) => {
+            _fireuser.push(doc.data());
+        });
+        _user = _fireuser;
+      });
 
-    const grabdata = onSnapshot(
-          collection(_firestore_, "AllUsers"),
-          (querySnapshot) => {
-            _user = querySnapshot.docs.map((doc) => ({
-              ...doc.data(),
-              id: doc.id,
-            }));
-          },
-          (err) => {
-            console.error(err);
-          }
-        );
-
-
-        const docRef = doc(_firestore_, "AllUsers", "rUDRtADUjdvhO68NDHwa");
-        const docSnap =  async () =>{
-          await getDoc(docRef);
-        if (docSnap.exists()) {
-          console.log("Document data:", docSnap.data());
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      }
-
-/*
-    let username = "Number"
-
-    const collectionRef = collection(_firestore_,"AllUsers")
-    const userquery = query(collectionRef,where("first","==",username))
-    onSnapshot(userquery,(data) => {
-    console.log(
-    data.docs.map((user) =>{
-      return user.data();
-    })
-  )
-  username = userquery;
-})*/
-
-
+    
 
     /* Adding User to Firestore *
-     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */
+     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
     const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {
@@ -93,6 +61,7 @@
       addUserToFirestore();
       _info = {firstname: "",
       lastname: "",
+      email: "",
       currentrole: "",
       field_of_interest: "",
       level_experience: "",
@@ -102,11 +71,24 @@
     };
 
 
-    onDestroy(grabdata);
+    onDestroy(_snapshot);
 </script>
 
+
+
 <!-- HTML TEMPLATE BEGINS -->
-<h1>{docRef}</h1>
+<h1> **Reading Data From Firestore**</h1>
+{#each _user as _info}
+  <p>{_info.firstname}</p>
+  <p>{_info.lastname}</p>
+  <p>{_info.email}</p>
+  <p>{_info.currentrole}</p>
+  <p>{_info.field_of_interest}</p>
+  <p>{_info.level_experience}</p>
+  <p>{_info.professional_goals}</p>
+  <p>{_info.currentrole}</p>
+{/each}
+<h1> ****</h1>
 <div class="container p-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -120,7 +102,7 @@
             type="text"
             bind:value={_info.firstname}
             bind:this={inputElement}
-            placeholder={_info.firstname == '' ? "First Name" : "Firestore Name"}
+            placeholder= 'First Name'
             class="form-control"
           />
         </div>
@@ -224,41 +206,11 @@
             class="form-control"
           />
         </div>
-
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
-   
-
       </form>
     </div>
   </div>
 </div>
 
-<!--
-{#if _localemail == _info.email}
-  <h1>{_info.email}</h1>
-  <h1>{_localemail}</h1>
-{/if}-->
-
-
-<div class="card card-body mt-2">
-  <div class="d-flex justify-content-between">
-    <h5>{_info.firstname}</h5>
-  </div>
-  <p>{_info.lastname}</p>
-  <div>
-  </div>
-</div>
-
-<!--
-{#each _user as _info}
-<div class="card card-body mt-2">
-  <div class="d-flex justify-content-between">
-    <h5>{_info.firstname}</h5>
-  </div>
-  <p>{_info.lastname}</p>
-  <div>
-  </div>
-</div>
-{/each}-->
