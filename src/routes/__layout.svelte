@@ -8,7 +8,7 @@
   import { isLoggedIn } from "./stores/authstore.js";
   import Navbar from "../components/layout/navbar.svelte";
   import Sidebar from "../components/layout/sidebar.svelte";
-  import Login from "../routes/login.svelte";
+ // import Login from "./authenticate/login.svelte";
   import {page} from '$app/stores';
   
   let login = false;
@@ -27,7 +27,7 @@
       } else {
         // Else redirect to login page
         isLoggedIn.update(() => false); // Ensuring authstore writable is false and user cannot login
-        goto("/login"); // Navigating back to login page
+        goto("/authenticate/login"); // Navigating back to login page
         login = false; 
       }
     });

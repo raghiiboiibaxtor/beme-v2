@@ -11,15 +11,15 @@
   function Logout(){
       signOut(auth)
       .then(() => {localStorage.removeItem("uid");
-      goto('/login');
+      goto('/authenticate/login');
   })
   .catch((error) => {console.error(error)})
   }
 
   let clicked = false;
   let menu = false;
-  let current = 'Profile';
-
+  let current = '/';
+  let url = $page.url.pathname;
 
 </script>
 
@@ -43,17 +43,18 @@
 {#if clicked == true}
 <div class="top-nav-background">
   <div class="top-nav-menu">
-    <button onclick="location.href='/';" class="{current === 'Profile' ? 'selected' : ''}"
-        on:click="{() => current = 'Profile'}">Profile</button>
+    <button onclick="location.href='/';" class="{url === '/' ? 'selected' : ''}"
+    on:click="{() => current = '/'}">Profile</button>
 
-        <button onclick="location.href='/mywork';" class="{current === 'My Work' ? 'selected' : ''}"
-        on:click="{() => current = 'My Work'}">My Work</button>
+    <button onclick="location.href='/mywork';" class="{url === '/mywork' ? 'selected' : ''}"
+    on:click="{() => current = '/mywork'}">My Work</button>
 
-        <button onclick="location.href='/portfolio';" class="{current === 'Portfolio' ? 'selected' : ''}"
-        on:click="{() => current = 'Portfolio'}">Portfolio</button>
-
-        <button onclick="location.href='/login';" class="{current === 'Logout' ? 'selected' : ''}"
-        on:click="{() => current = 'Logout'}" on:click|preventDefault={Logout} >Logout</button>
+    <button onclick="location.href='/portfolio';" class="{url === '/portfolio' ? 'selected' : ''}"
+    on:click="{() => current = '/portfolio'}">Portfolio</button>
+  </div>
+  <div class="bottom-side-nav">
+    <button onclick="location.href='/authenticate/login';" class="{url === '/authenticate/login' ? 'selected' : ''}"
+    on:click="{() => current = '/authenticate/login'}" on:click|preventDefault={Logout} >Logout</button>
   </div>
 </div>
 {/if}
