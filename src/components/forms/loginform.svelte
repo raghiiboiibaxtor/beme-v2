@@ -26,9 +26,14 @@
     };
 
     const handleSubmit = () => {
-      addUserToFirestore();
+      if (title == "Enter your details to login."){
+        ; // Do nothing
+      }
+      else{ // Add user to Firestore
+        addUserToFirestore();
       _info = {email: ""};
       inputElement.focus();
+      }
     };
 
   function Login()
@@ -283,19 +288,6 @@
     justify-content: space-between;
     
   }
-
-  .card-link{
-    margin-left:0.88rem;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-  }
-
-  .beme-water-img{
-    margin-top: 1.23rem;
-    height: 88%;
-  }
-
 
   @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     .login-form {
