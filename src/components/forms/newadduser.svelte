@@ -29,17 +29,14 @@
 
     let inputElement; // Declaring input element used for binding ui to list variables
     let _user = [];
-    let _authemail;
-    let _localemail = localStorage.getItem('email');
-
+    
     // Reading Multiple Documents from Firestore
-      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", "raghiibaxtor@gmail.com"));
-      const unsubscribe = onSnapshot(_collection, (querySnapshot) => {
+      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", 'lesedingoma@gmail.com'));
+      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
         const _fireuser = [];
         querySnapshot.forEach((doc) => {
             _fireuser.push(doc.data());
         });
-        _authemail = _fireuser.email
         _user = _fireuser;
       });
 
@@ -74,23 +71,24 @@
     };
 
 
-    onDestroy(unsubscribe);
+    onDestroy(_snapshot);
 </script>
 
 
-<!-- HTML TEMPLATE BEGINS -->
-<h1>Local Email: {_localemail}</h1>
-{#each _user as _info}
-<div class="card card-body mt-2">
-  <div class="d-flex justify-content-between">
-    <h5>{_info.firstname}</h5>
-  </div>
-  <p>{_info.lastname}</p>
-  <div>
-  </div>
-</div>
-{/each}
 
+<!-- HTML TEMPLATE BEGINS -->
+<h1> **Reading Data From Firestore**</h1>
+{#each _user as _info}
+  <p>{_info.firstname}</p>
+  <p>{_info.lastname}</p>
+  <p>{_info.email}</p>
+  <p>{_info.currentrole}</p>
+  <p>{_info.field_of_interest}</p>
+  <p>{_info.level_experience}</p>
+  <p>{_info.professional_goals}</p>
+  <p>{_info.currentrole}</p>
+{/each}
+<h1> ****</h1>
 <div class="container p-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -104,7 +102,7 @@
             type="text"
             bind:value={_info.firstname}
             bind:this={inputElement}
-            placeholder={_info.firstname == '' ? "First Name" : "Firestore Name"}
+            placeholder= 'First Name'
             class="form-control"
           />
         </div>
@@ -215,5 +213,4 @@
     </div>
   </div>
 </div>
-
 
