@@ -18,6 +18,7 @@
     let _info = {
       firstname: "",
       lastname: "",
+      email: "",
       currentrole: "",
       field_of_interest: "",
       level_experience: "",
@@ -28,7 +29,8 @@
 
     let inputElement; // Declaring input element used for binding ui to list variables
     let _user = [];
-    
+    let _authemail;
+    let _localemail = localStorage.getItem('email');
 
     // Reading Multiple Documents from Firestore
       const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", "raghiibaxtor@gmail.com"));
@@ -37,10 +39,11 @@
         querySnapshot.forEach((doc) => {
             _fireuser.push(doc.data());
         });
-        console.log("Firebase Read Raghii: ", _fireuser.join(", "));
+        _authemail = _fireuser.email
         _user = _fireuser;
       });
 
+    
 
     /* Adding User to Firestore *
      *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
@@ -61,6 +64,7 @@
       addUserToFirestore();
       _info = {firstname: "",
       lastname: "",
+      email: "",
       currentrole: "",
       field_of_interest: "",
       level_experience: "",
@@ -74,9 +78,8 @@
 </script>
 
 
-<h1>{_user}</h1>
-<h1>{_info}</h1>
 <!-- HTML TEMPLATE BEGINS -->
+<h1>Local Email: {_localemail}</h1>
 {#each _user as _info}
 <div class="card card-body mt-2">
   <div class="d-flex justify-content-between">
@@ -205,12 +208,9 @@
             class="form-control"
           />
         </div>
-
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
-   
-
       </form>
     </div>
   </div>
