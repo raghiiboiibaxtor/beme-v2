@@ -10,7 +10,7 @@
   const auth = getAuth();
   let inputElement;
   let _info = {
-      email: ""
+      email: "",
     };
 
   const addUserToFirestore = async () => {
@@ -51,6 +51,7 @@
               // Storing user ID locally (allowing for access of user's files locally)
               // Tokens & user's private data will be stored in Firebase
               localStorage.setItem('uid', user.uid);
+              localStorage.setItem('email', user.email)
               // Directing to "home page" aka project route 
               goto("/")
           
@@ -65,7 +66,6 @@
               const user = userCredential.user
               localStorage.setItem('uid', user.uid);
               goto("/")
-          
               // Catching errors
           }).catch((error) => {
               console.error(error)

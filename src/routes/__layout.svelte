@@ -12,7 +12,6 @@
   import {page} from '$app/stores';
   
   let login = false;
-  let url = $page.url.pathname;
   // Mounting authentication.
   // Grabbing getAuth() variable from Firebase and passing it locally to auth
   onMount(() => {

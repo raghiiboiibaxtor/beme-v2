@@ -9,6 +9,7 @@
       deleteDoc,
       doc,
       updateDoc,
+      getDoc,
     } from "firebase/firestore";
     import { onDestroy } from "svelte";
 
@@ -29,10 +30,11 @@
 
     let _user = [];
     let inputElement; // Declaring input element used for binding ui to list variables
-   // let _localuser = window.localStorage.getItem('uid');
+    //let _localemail = localStorage.getItem('email');
+    //let _localuser = window.localStorage.getItem('uid');
 
     const grabdata = onSnapshot(
-          collection(_firestore_, "ReadTest"),
+          collection(_firestore_, "AllUsers"),
           (querySnapshot) => {
             _user = querySnapshot.docs.map((doc) => ({
               ...doc.data(),
@@ -43,6 +45,18 @@
             console.error(err);
           }
         );
+
+
+        const docRef = doc(_firestore_, "AllUsers", "rUDRtADUjdvhO68NDHwa");
+        const docSnap =  async () =>{
+          await getDoc(docRef);
+        if (docSnap.exists()) {
+          console.log("Document data:", docSnap.data());
+        } else {
+          // doc.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      }
 
 /*
     let username = "Number"
@@ -92,7 +106,7 @@
 </script>
 
 <!-- HTML TEMPLATE BEGINS -->
-
+<h1>{docRef}</h1>
 <div class="container p-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -221,8 +235,23 @@
   </div>
 </div>
 
+<!--
+{#if _localemail == _info.email}
+  <h1>{_info.email}</h1>
+  <h1>{_localemail}</h1>
+{/if}-->
 
 
+<div class="card card-body mt-2">
+  <div class="d-flex justify-content-between">
+    <h5>{_info.firstname}</h5>
+  </div>
+  <p>{_info.lastname}</p>
+  <div>
+  </div>
+</div>
+
+<!--
 {#each _user as _info}
 <div class="card card-body mt-2">
   <div class="d-flex justify-content-between">
@@ -232,4 +261,4 @@
   <div>
   </div>
 </div>
-{/each}
+{/each}-->
