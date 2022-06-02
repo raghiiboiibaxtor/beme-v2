@@ -1,15 +1,26 @@
-<script>
-    
-    // add data
-    import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {collection, addDoc} from "firebase/firestore"; // Importing functions from Firestore
+<!-- PLEASE NOTE : This page is purely functional. The data is real time pushed to firestore and pulled from firestore. The UI for the read function has not been implemented yet, as it was not part of this brief. Please see src/components/forms for components where AddUser functionality has been implemented with the ui as part of the brief.
+-->
 
+<!-- JAVASCRIPT BEGINS -->
+<script>
+    import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
+    import {
+      onSnapshot,
+      collection,
+      addDoc,
+      doc,
+      getDoc,
+      query,
+      where,
+    } from "firebase/firestore";
+    import { onDestroy } from "svelte";
 
 
     // Creating list of variables that will pass data to Firestore ()
-    let _userinfo = {
+    let _info = {
       firstname: "",
       lastname: "",
+      email: "",
       currentrole: "",
       field_of_interest: "",
       level_experience: "",
@@ -19,13 +30,25 @@
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
+    let _user = [];
+    
+    // Reading Multiple Documents from Firestore
+      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", 'lesedingoma@gmail.com'));
+      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
+        const _fireuser = [];
+        querySnapshot.forEach((doc) => {
+            _fireuser.push(doc.data());
+        });
+        _user = _fireuser;
+      });
 
+    
     /* Adding User to Firestore *
-     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */
+     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
     const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {
-          ..._userinfo,
+          ..._info,
           createdAt: Date.now(),
         });
         // Waiting to catch errors
@@ -37,14 +60,36 @@
     // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
     const handleSubmit = () => {
       addUserToFirestore();
-      _userinfo = { firstname: "", lastname: "" };
+      _info = {firstname: "",
+      lastname: "",
+      email: "",
+      currentrole: "",
+      field_of_interest: "",
+      level_experience: "",
+      professional_goals: "",
+      skills:{skill1:"",skill2:"",skill3:""}};
       inputElement.focus();
     };
 
-
+    // Destroying _Snapshot obj from Firestore
+    onDestroy(_snapshot);
 </script>
 
+
+
 <!-- HTML TEMPLATE BEGINS -->
+<h1> **Reading Data From Firestore**</h1>
+{#each _user as _info}
+  <p>{_info.firstname}</p>
+  <p>{_info.lastname}</p>
+  <p>{_info.email}</p>
+  <p>{_info.currentrole}</p>
+  <p>{_info.field_of_interest}</p>
+  <p>{_info.level_experience}</p>
+  <p>{_info.professional_goals}</p>
+  <p>{_info.currentrole}</p>
+{/each}
+<h1> ****</h1>
 <div class="container p-4">
   <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -56,9 +101,9 @@
           <!-- Binding firestore variables to ui and grabbing user entered text -->
           <input
             type="text"
-            bind:value={_userinfo.firstname}
+            bind:value={_info.firstname}
             bind:this={inputElement}
-            placeholder="Firstname"
+            placeholder= 'First Name'
             class="form-control"
           />
         </div>
@@ -69,7 +114,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.lastname}
+            bind:value={_info.lastname}
             bind:this={inputElement}
             placeholder="Lastname"
             class="form-control"
@@ -82,7 +127,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.currentrole}
+            bind:value={_info.currentrole}
             bind:this={inputElement}
             placeholder="Add your current role"
             class="form-control"
@@ -95,7 +140,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.field_of_interest}
+            bind:value={_info.field_of_interest}
             bind:this={inputElement}
             placeholder="What are you specialising in now"
             class="form-control"
@@ -108,7 +153,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.level_experience}
+            bind:value={_info.level_experience}
             bind:this={inputElement}
             placeholder="Level of Experience"
             class="form-control"
@@ -121,7 +166,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.professional_goals}
+            bind:value={_info.professional_goals}
             bind:this={inputElement}
             placeholder="What is your next role"
             class="form-control"
@@ -135,7 +180,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.skills.skill1}
+            bind:value={_info.skills.skill1}
             bind:this={inputElement}
             class="form-control"
           />
@@ -146,7 +191,7 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.skills.skill2}
+            bind:value={_info.skills.skill2}
             bind:this={inputElement}
             class="form-control"
           />
@@ -157,17 +202,14 @@
           >
           <input
             type="text"
-            bind:value={_userinfo.skills.skill3}
+            bind:value={_info.skills.skill3}
             bind:this={inputElement}
             class="form-control"
           />
         </div>
-
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
-   
-
       </form>
     </div>
   </div>

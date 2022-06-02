@@ -1,8 +1,8 @@
-// Import the functions you need from the SDKs you need
+// Importing Firebase functions from SDKs
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
-// Your web app's Firebase configuration
+// BeMe's web app Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBMEBQEH-S1nDhjXSWrm8oOoyyt4QTJnIs",
   authDomain: "beme-64162.firebaseapp.com",
@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const _firestore_ = getFirestore(app);
+export const _firestore_ = getFirestore(app); // Intialising Firestore as a variable and exporting it for global use.
 
 
-export default app;
+export default app; // Exporting the "Firebase.WebApp" for global use.

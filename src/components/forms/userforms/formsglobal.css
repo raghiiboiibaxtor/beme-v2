@@ -1,12 +1,8 @@
-
-
-
     .body-container{
         display: flex;
         flex-direction: column;
         width: 333px;
     }
-
 
     .form-container{
         width: 100%;
@@ -65,7 +61,6 @@
         color: var(--placeholdertext);
     }
 
-
     .label-p-input{
         margin-top: 0.23rem;
         margin-bottom: 0.55rem;
@@ -76,7 +71,7 @@
           line-height: 119.7%;
           letter-spacing: -0.02em;
           color: var(--dark);
-      }
+    }
 
     .form-control{
         font-family: 'Montserrat';
@@ -115,34 +110,33 @@
         resize: none !important;
     }
 
-
     .skill-flex{
         width: 100%;
         display: flex;
         justify-content: space-between;
         margin-bottom: 0.55rem;
         margin-top: 0.23rem;
-      }
+    }
   
-      .left-items{
+    .left-items{
         width: 48%;
-      }
+    }
   
-      .right-items{
+    .right-items{
         width: 48%;
-      }
+    }
   
-      .skill-form-control{
+    .skill-form-control{
         font-family: 'Montserrat';
-          font-style: normal;
-          font-weight: 500;
-          height: 2.23rem;
-          border-radius: 23rem;
-          border: 2.23px solid rgba(112, 156, 212, 0.44);
-          width: 100%;
-          color: var(--main);
-          font-size: 12px;
-      }
+        font-style: normal;
+        font-weight: 500;
+        height: 2.23rem;
+        border-radius: 23rem;
+        border: 2.23px solid rgba(112, 156, 212, 0.44);
+        width: 100%;
+        color: var(--main);
+        font-size: 12px;
+    }
 
     .button-flex{
         display: flex;
@@ -152,27 +146,29 @@
     
     .button{
         margin-top: 0.23rem;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 0.23px;
-    width: 5.5rem;
-    height: 2.3rem;
-    font-size: large;
-    color: white;
-    background-image: linear-gradient(
-    45deg,
-    hsl(237deg 81% 60%) 0%,
-    hsl(218deg 94% 54%) 20%,
-    hsl(210deg 100% 50%) 40%,
-    hsl(205deg 100% 50%) 60%,
-    hsl(201deg 100% 50%) 80%,
-    hsl(202deg 100% 61%) 100% );
-    border-radius: 23rem;
-    text-align: center !important;
-  }
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        letter-spacing: 0.23px;
+        width: 5.5rem;
+        height: 2.3rem;
+        font-size: large;
+        color: white;
+        background-image: linear-gradient(
+        45deg,
+        hsl(237deg 81% 60%) 0%,
+        hsl(218deg 94% 54%) 20%,
+        hsl(210deg 100% 50%) 40%,
+        hsl(205deg 100% 50%) 60%,
+        hsl(201deg 100% 50%) 80%,
+        hsl(202deg 100% 61%) 100% );
+        border-radius: 23rem;
+        text-align: center !important;
+    }
     
 
+/****************** MEDIA QUERY BEGINS *************************/
+/* Used to create responsive websites, by declaring min & max screen sizes*/
 
   @media only screen and (max-width: 777px){
  

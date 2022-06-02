@@ -1,3 +1,4 @@
+/* Tailwind is not being used at present. It is installed likely for future use; should we need it */ 
 /* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;

@@ -20,7 +20,6 @@
   let menu = false;
   let current = '/';
   let url = $page.url.pathname;
-
 </script>
 
 
