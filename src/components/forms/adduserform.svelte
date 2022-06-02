@@ -4,8 +4,6 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
     import {collection, addDoc} from "firebase/firestore"; // Importing functions from Firestore
 
-
-
     // Creating list of variables that will pass data to Firestore ()
     let _userinfo = {
       firstname: "",
@@ -15,7 +13,6 @@
       level_experience: "",
       professional_goals: "",
       skills:{skill1:"",skill2:"",skill3:""}
-
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
@@ -166,8 +163,7 @@
         <div class="d-flex gap-2 mt-2">
           <button class="btn btn-primary btn-sm d-flex" >Save</button>
         </div>
-   
-
+  
       </form>
     </div>
   </div>

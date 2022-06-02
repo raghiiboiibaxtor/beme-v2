@@ -1,17 +1,7 @@
 <script>
-    import './formsglobal.css';
-    // add data
+    import './formsglobal.css'; // Importing global form css
     import {_firestore_} from "../../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {
-      onSnapshot,
-      collection,
-      addDoc,
-      doc,
-      getDoc,
-      query,
-      where,
-    } from "firebase/firestore";
-    import { onDestroy } from "svelte";
+    import {collection, addDoc,} from "firebase/firestore";
 
 
     // Creating list of variables that will pass data to Firestore ()
@@ -23,20 +13,8 @@
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
-    let _user = [];
-    
-    // Reading Multiple Documents from Firestore
-      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", 'lesedingoma@gmail.com'));
-      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
-        const _fireuser = [];
-        querySnapshot.forEach((doc) => {
-            _fireuser.push(doc.data());
-        });
-        _user = _fireuser;
-      });
 
-    /* Adding User to Firestore *
-     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
+    /* Adding User to Firestore */
     const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {
@@ -61,15 +39,9 @@
       inputElement.focus();
     };
 
-    // Destroying _Snapshot obj from Firestore 
-    onDestroy(_snapshot);
 </script>
 
-
-
 <!-- HTML TEMPLATE BEGINS -->
-
-
 <div class="body-container">
     <div class="form-container">
     <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
@@ -129,7 +101,6 @@
         />
         </div>
 
-       
         <div class="button-flex">
         <button class="button" >Save </button>
         </div>
