@@ -52,22 +52,26 @@
 
 <style>
   :global(body) {
+    width: 100%;
+    margin: 0 auto;
     background-color:var(--light);
   }
   
 .page-layout{
  width: 100%;
  height:100%;
+ margin: 0 auto;
 }
 
 .top-nav{
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 99;
 }
 
 .page-margin-slot{
-  width:100%;
+  width: 100%;
+  padding: 0.23rem;
   display: flex;
   
 }
@@ -77,6 +81,7 @@
   height: 100%;
   position: fixed;
   left: 0;
+  z-index: 88;
 }
 
 .page-slot{
@@ -92,7 +97,7 @@
   }
 
   .page-margin-slot{
-    margin: 1.23rem;
+    margin: 0;
   }
 
   .page-slot{

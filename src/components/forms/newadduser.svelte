@@ -70,7 +70,7 @@
       inputElement.focus();
     };
 
-
+    // Destroying _Snapshot obj from Firestore
     onDestroy(_snapshot);
 </script>
 

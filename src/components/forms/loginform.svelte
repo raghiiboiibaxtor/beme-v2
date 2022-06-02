@@ -9,8 +9,10 @@
   export let title;
   const auth = getAuth();
   let inputElement;
+  let _localemail = '';
   let _info = {
       email: "",
+      
     };
 
   const addUserToFirestore = async () => {
@@ -52,6 +54,7 @@
               // Tokens & user's private data will be stored in Firebase
               localStorage.setItem('uid', user.uid);
               localStorage.setItem('email', user.email)
+              _localemail == localStorage.getItem('email');
               // Directing to "home page" aka project route 
               goto("/")
           
