@@ -51,12 +51,10 @@
 
     <button onclick="location.href='/portfolio';" class="{url === '/portfolio' ? 'selected' : ''}"
     on:click="{() => current = '/portfolio'}">Portfolio</button>
-  </div>
-  <div class="bottom-side-nav">
     <button onclick="location.href='/authenticate/login';" class="{url === '/authenticate/login' ? 'selected' : ''}"
     on:click="{() => current = '/authenticate/login'}" on:click|preventDefault={Logout} >Logout</button>
   </div>
-</div>
+  </div>
 {/if}
 </nav>
 

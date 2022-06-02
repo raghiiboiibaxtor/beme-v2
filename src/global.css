@@ -48,7 +48,12 @@ input:disabled {
 }
 
 input:focus{
-	border: none;
+	outline-style: none;
+	box-shadow: none;
+	border-color: transparent;
+	background: 
+  linear-gradient(var(--light), var(--light)) padding-box,
+  linear-gradient(90deg, #5271FF 0%, #38B6FF 100%) border-box;
 }
 
 input[type="range"] {
@@ -86,12 +91,14 @@ h1{
 
 :root{
 
+	--main: #4592FF;
 	--primary: #709CD4;
 	--light: #F6F8FF;
 	--dark: #6578B7;
 	--lighttext: #BDD1F9;
 	--purple: #5271FF;
 	--blue: #38B6FF;
+	--placeholdertext: rgba(101, 120, 183, 0.55);
 }
 
 * {
