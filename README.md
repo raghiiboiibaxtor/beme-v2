@@ -24,8 +24,8 @@ Git ([Git - Downloading Package (git-scm.com)](https://git-scm.com/download/win)
 ## Cloning this project
 
 ```
-git clone (https://github.com/raghiiboiibaxtor/beme-v2.git)
-cd beme-v2
+git clone https://github.com/sveltejs/svelte.git
+cd svelte
 npm install
 ```
 
