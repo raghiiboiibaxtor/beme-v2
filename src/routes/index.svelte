@@ -1,3 +1,4 @@
+<!--JAVASCRIPT BEGINS-->
 <script>
 	import AboutMeForm from "../components/forms/userforms/aboutmeform.svelte";
 	import UserProfile from "../components/forms/userforms/userprofile.svelte";
@@ -7,6 +8,7 @@
 	import Skills from "../components/forms/userforms/skills.svelte";
 </script>
 
+<!--HTML BEGINS-->
 <div class="profile-container">
 <div class="cards-horizontal-flex">
 	<div class="left-items">
@@ -30,7 +32,7 @@
 </div>	
 </div>
 
-
+<!--CSS BEGINS-->
 <style>
 
 .profile-container{
@@ -46,8 +48,6 @@
 	justify-content: space-between;
 }
 
-
-
 .nested-horizontal-flex{
 	width: 88%;
 	display: flex;
@@ -55,7 +55,8 @@
 }
 
 
-
+/* MEDIA QUERY BEGINS */
+/*******************************************/
 @media only screen and (max-width: 777px){
 
 .profile-container{
@@ -72,16 +73,11 @@
  justify-content: none;
 }
 
-
-
 .nested-horizontal-flex{
  display: flex;
  flex-direction: column;
 }
 
 }
-/* MEDIA QUERY ENDS */
-/*******************************************/
-
 
 </style>

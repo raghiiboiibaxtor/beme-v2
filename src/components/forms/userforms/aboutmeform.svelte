@@ -14,7 +14,8 @@
 
     let inputElement; // Declaring input element used for binding ui to list variables
 
-    /* Adding User to Firestore */
+      /* Adding User to Firestore *
+     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */
     const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {

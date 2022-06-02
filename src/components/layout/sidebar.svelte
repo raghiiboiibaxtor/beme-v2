@@ -1,5 +1,5 @@
+<!-- JAVASCRIPT BEGINS -->
 <script>
-
   import {goto} from '$app/navigation';
   import {getAuth, signOut} from "firebase/auth";
   import {isLoggedIn} from '../../routes/stores/authstore.js';
@@ -16,14 +16,12 @@
   .catch((error) => {console.error(error)})
   }
 
-  let clicked = false;
-  let menu = false;
-  let current = '/';
-  let url = $page.url.pathname;
+  let current = '/'; // Assigning indexed page path to current
+  let url = $page.url.pathname; // Grabbing url from page path 
 
-  
 </script>
 
+<!-- HTML BEGINS -->
 <div class="sidebar-container">
         <div class="sidenav-menu">
             <div class="top-sidenav">
@@ -43,6 +41,8 @@
         </div>
 </div>
 
+
+<!-- CSS BEGINS -->
 <style>
 .sidebar-container{
     z-index: 1;
@@ -98,10 +98,4 @@ button{
           hsl(202deg 100% 61%) 100% );
         
 	}
-
-.beme-sidebar-logo{
-    width: 7.7rem;
-}
-
-
 </style>

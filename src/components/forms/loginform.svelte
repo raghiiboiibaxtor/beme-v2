@@ -1,3 +1,4 @@
+<!--JAVASCRIPT BEGINS-->
 <script>
   import {goto} from '$app/navigation';
   import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
@@ -12,7 +13,6 @@
   let _localemail = '';
   let _info = {
       email: "",
-      
     };
 
   const addUserToFirestore = async () => {
@@ -40,8 +40,7 @@
 
   function Login()
   {
-      // Declaring local variables to grab info from UI 
-      // Variables will be used to authenticate user
+      // Declaring local variables to grab info from UI &authenticate user
       let email = document.getElementById('login-email-input').value;
       let password = document.getElementById('login-password-input').value;
       // If title & login match, authenticate the user and sign them in using Firebase Auth SDKs & Cloud Functions
@@ -57,7 +56,6 @@
               _localemail == localStorage.getItem('email');
               // Directing to "home page" aka project route 
               goto("/")
-          
               // Catching errors
           }).catch((error) => {
               console.error(error)
@@ -75,11 +73,10 @@
           })
       }
   }
-
 </script>
-<body>
-  
 
+<!--HTML TEMPLATE BEGINS-->
+<body>
 <div class="page-template">
 <div class="login">
   <h1 id='local-h1'> Everything you need in one place. </h1>
@@ -127,12 +124,11 @@
   </div>
 </div>
 </div>
-
 </body>
 
 
+<!-- CSS BEGINS -->
 <style>
-
   .page-template{
     display: flex;
     flex-direction: column;
@@ -183,7 +179,6 @@
     margin-top: 0.88rem;
     width: 100%;
   }
-
 
   .form-label{
     margin-top: 0.23rem;

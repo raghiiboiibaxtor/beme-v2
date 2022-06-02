@@ -1,3 +1,4 @@
+/* App's global CSS page*/
 
 html, body {
 	position: relative;
@@ -5,7 +6,6 @@ html, body {
 	height: 95%;
 	background-color: var(--light);
 }
-
 
 body{
 	margin: 0;

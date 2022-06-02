@@ -28,7 +28,7 @@
       }
     };
 
-    // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
+    // Handling form submission & passing addUserToFirestore()
     const handleSubmit = () => {
       addUserToFirestore();
       _info = {worktitle: "",

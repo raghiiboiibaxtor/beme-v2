@@ -1,3 +1,6 @@
+<!-- This page is a global layout page. It's function is to assign a page template to the relevant pages (Index, MyWork, Portfolio) within this app-->
+
+<!--JAVASCRIPT BEGINS-->
 <script>
   import "../app.css";
   // Importing SDKs
@@ -8,8 +11,6 @@
   import { isLoggedIn } from "./stores/authstore.js";
   import Navbar from "../components/layout/navbar.svelte";
   import Sidebar from "../components/layout/sidebar.svelte";
- // import Login from "./authenticate/login.svelte";
-  import {page} from '$app/stores';
   
   let login = false;
   // Mounting authentication.
@@ -33,12 +34,11 @@
   });
 </script>
 
-
+<!--HTML BEGINS-->
 <div class="page-layout">
   <div class="top-nav">
   <Navbar/>
   </div>
- 
   <div class="sidebar">
     <Sidebar/>
   </div>
@@ -49,7 +49,7 @@
 </div>
 </div>
 
-
+<!--CSS BEGINS-->
 <style>
   :global(body) {
     width: 100%;

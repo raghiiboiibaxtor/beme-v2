@@ -1,6 +1,8 @@
+<!-- PLEASE NOTE : This page is purely functional. The data is real time pushed to firestore and pulled from firestore. The UI for the read function has not been implemented yet, as it was not part of this brief. Please see src/components/forms for components where AddUser functionality has been implemented with the ui as part of the brief.
+-->
+
+<!-- JAVASCRIPT BEGINS -->
 <script>
-    
-    // add data
     import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
     import {
       onSnapshot,
@@ -41,7 +43,6 @@
       });
 
     
-
     /* Adding User to Firestore *
      *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
     const addUserToFirestore = async () => {

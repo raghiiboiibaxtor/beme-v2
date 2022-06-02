@@ -1,13 +1,8 @@
+<!--JAVASCRIPT BEGINS-->
 <script>
     import LoginForm from '../../components/forms/loginform.svelte';
-   // import '../../src/global.css';
 </script>
 
-<div class="page-template">
+<!--HTML BEGINS-->
+<!--Calling LoginForm and Assigning variable to title to create "sign-up page" -->
 <LoginForm title="Enter your details to login."></LoginForm>
-</div>
-
-<style>
-
-
-</style>
