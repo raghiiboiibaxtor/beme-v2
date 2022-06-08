@@ -9,8 +9,7 @@
   // Declaring global varibales
   export let title;
   const auth = getAuth();
-  let inputElement;
-  let _localemail = '';
+  
   let _info = {
       email: "",
     };
@@ -20,6 +19,7 @@
         await addDoc(collection(_firestore_, "AllUsers"), {
           ..._info,
           createdAt: Date.now(),
+          userid: localStorage.getItem('uid'),
         });
         // Waiting to catch errors
       } catch (error) {
@@ -33,8 +33,6 @@
       }
       else{ // Add user to Firestore
         addUserToFirestore();
-      _info = {email: ""};
-      inputElement.focus();
       }
     };
 
@@ -53,7 +51,6 @@
               // Tokens & user's private data will be stored in Firebase
               localStorage.setItem('uid', user.uid);
               localStorage.setItem('email', user.email)
-              _localemail == localStorage.getItem('email');
               // Directing to "home page" aka project route 
               goto("/")
               // Catching errors
@@ -66,7 +63,9 @@
           .then((userCredential)=>{
               const user = userCredential.user
               localStorage.setItem('uid', user.uid);
+              localStorage.setItem('email', user.email)
               goto("/")
+              handleSubmit();
               // Catching errors
           }).catch((error) => {
               console.error(error)
@@ -83,13 +82,12 @@
   <h3 id='local-h3'> Build and share your portfolio with ease. </h3>
   <div class="card">
     <div class="card-body login-form">
-      <form on:submit|preventDefault={Login} on:submit|preventDefault={handleSubmit}>
+      <form on:submit|preventDefault={Login}>
         <h5 class="card-title">{title}</h5>
         <div class="mb-3">
           <label for="login-email-input" class="form-label">Email address</label>
           <input
             bind:value={_info.email}
-            bind:this={inputElement}
             type="email"
             class="form-control"
             id="login-email-input"
