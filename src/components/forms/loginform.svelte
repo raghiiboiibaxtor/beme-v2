@@ -11,6 +11,8 @@
   let _info = {
       email: "",
     };
+
+
   const addUserToFirestore = async () => {
       try {
         await setDoc(doc(_firestore_, "AllUsers",localStorage.getItem('uid')), {
@@ -24,14 +26,12 @@
       }
     };
 
-
     const handleSubmit = () => {
       if (title == "Enter your details to login."){
         ; // Do nothing
       }
       else{ // Add user to Firestore
         addUserToFirestore();
-        
       }
     };
 
