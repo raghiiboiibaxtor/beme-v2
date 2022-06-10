@@ -11,6 +11,7 @@
       lastname: "",
       workemail: "",
       pronouns: "",
+      personalbio: "",
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
@@ -35,6 +36,7 @@
       lastname: "",
       workemail: "",
       pronouns: "",
+      personalbio: "",
       };
       inputElement.focus();
     };
@@ -94,7 +96,7 @@
         >
         <input
             type="text"
-            bind:value={_info.level_experience}
+            bind:value={_info.personalbio}
             bind:this={inputElement}
             placeholder="Keep it short and sweet!"
             class="form-control"

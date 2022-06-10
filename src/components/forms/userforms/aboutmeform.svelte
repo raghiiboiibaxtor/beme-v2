@@ -8,7 +8,7 @@
     let _info = {
       currentrole: "",
       field_of_interest: "",
-      level_experience: "",
+      bio: "",
       professional_goals: "",
     };
 
@@ -34,7 +34,7 @@
       _info = {
       currentrole: "",
       field_of_interest: "",
-      level_experience: "",
+      bio: "",
       professional_goals: "",
       };
       inputElement.focus();
