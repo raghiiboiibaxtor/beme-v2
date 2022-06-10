@@ -20,15 +20,20 @@
 
     // Authenticating user before reading
     const auth = getAuth();
-    const user = auth.currentUser;
     let _useremail;
+    let _userdetails = [];
    // let uid = '';
 
    onAuthStateChanged(auth, (user) => {
     if (user !== null) {
-        const uid = user.uid;
+        _userdetails = user;
         _useremail = user.email;
         onSnapshot(doc(_firestore_, "AllUsers", _useremail), (doc) => {
+            const _fireuser = [];
+            doc.forEach((doc) => {
+                _fireuser.push(doc.data());
+            });
+        _userdetails = _fireuser;
         console.log("Current data in addreaduser: ", doc.data());
     })
     }
@@ -61,10 +66,13 @@
 <!-- HTML TEMPLATE BEGINS -->
 
 <h1> **Reading Dynamic Data From Firestore**</h1>
-{#if user !== null}
-<p>{_useremail}</p>
-{:else}
+{#if _userdetails !== null}
+<p>{_userdetails.email}</p>
+<p>{_userdetails.firstname}</p>
+{:else if _userdetails == null}
 <p>{'user = null'}</p>
+{:else}
+<p> Loading</p>
 {/if}
 
  
