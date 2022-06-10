@@ -3,6 +3,7 @@
 
 <!-- JAVASCRIPT BEGINS -->
 <script>
+    import { getAuth, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
     import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
     import {
       onSnapshot,
@@ -12,8 +13,12 @@
       getDoc,
       query,
       where,
+      getDocs,
+      documentId,
+QuerySnapshot
     } from "firebase/firestore";
     import { onDestroy } from "svelte";
+    import { dirty_components } from "svelte/internal";
 
 
     // Creating list of variables that will pass data to Firestore ()
@@ -30,22 +35,43 @@
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
-    let _user = [];
     
-    // Reading Multiple Documents from Firestore
-      const _collection = query(collection(_firestore_, "AllUsers"), where("email", "==", 'lesedingoma@gmail.com'));
-      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
-        const _fireuser = [];
+
+       
+    let _user = [];
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user !== null) {
+
+  
+
+
+        //successfully logging the current user signed ins data on console
+        const uid = user.uid;
+        onSnapshot(doc(_firestore_, "AllUsers", uid), (doc) => {
+        console.log("Current data in addreaduser: ", doc.data());
+        })
+        
+        /*const _fireuser = [];
         querySnapshot.forEach((doc) => {
             _fireuser.push(doc.data());
         });
         _user = _fireuser;
-      });
+      }*/
+    }
+
+    else{
+      console.log("auth.currentUser error")
+    };
+    
 
     
-    /* Adding User to Firestore *
+    /* Adding User to Firestore *\
      *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
-    const addUserToFirestore = async () => {
+     
+     
+     const addUserToFirestore = async () => {
       try {
         await addDoc(collection(_firestore_, "AllUsers"), {
           ..._info,
@@ -57,8 +83,8 @@
       }
     };
 
-
     // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
+    
     const handleSubmit = () => {
       addUserToFirestore();
       _info = {firstname: "",
@@ -71,9 +97,8 @@
       skills:{skill1:"",skill2:"",skill3:""}};
       inputElement.focus();
     };
-
     // Destroying _Snapshot obj from Firestore
-    onDestroy(_snapshot);
+    //onDestroy(_snapshot);
 </script>
 
 
