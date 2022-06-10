@@ -3,7 +3,7 @@
   import {getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
   import '../../../src/global.css';
   import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-  import {collection, addDoc, doc, setDoc} from "firebase/firestore"; // Importing functions from Firestore
+  import {collection, addDoc, doc, setDoc,getDoc,onSnapshot} from "firebase/firestore"; // Importing functions from Firestore
   // Declaring global varibales
   export let title;
   const auth = getAuth();
@@ -11,18 +11,28 @@
   let _info = {
       email: "",
     };
+
   const addUserToFirestore = async () => {
       try {
         await setDoc(doc(_firestore_, "AllUsers",localStorage.getItem('uid')), {
           ..._info,
           createdAt: Date.now(),
           userid: localStorage.getItem('uid'),
+        }).then(() =>
+        {                 
+          onSnapshot(doc(_firestore_, "AllUsers", localStorage.getItem('uid')), (doc) => {
+          console.log("Current data from LOGIN: ", doc.data());
         });
+        
+        })
         // Waiting to catch errors
       } catch (error) {
         console.error(error);
       }
+  
     };
+
+
 
 
     const handleSubmit = () => {
@@ -31,9 +41,9 @@
       }
       else{ // Add user to Firestore
         addUserToFirestore();
-        
+
       }
-    };
+};
 
  
   function Login()
@@ -56,6 +66,8 @@
               // Catching errors
           }).catch((error) => {
               console.error(error)
+                alert("The system doesn't recognise the username password combination, please try again."); 
+                      
           })
       }
       else { // If user does not exist: create new user
@@ -69,6 +81,7 @@
               // Catching errors
           }).catch((error) => {
               console.error(error)
+              alert("We could not sign you up! You might already be a member :)");
           })
       }
   }
@@ -98,6 +111,7 @@
             <div id="emailHelp" class="form-text">
               We'll never share your email with anyone else.
             </div>
+
           {/if}
         </div>
         <div class="mb-3">
