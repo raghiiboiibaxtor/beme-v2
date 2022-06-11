@@ -27,7 +27,7 @@ onAuthStateChanged(auth, (user) => {
 
 {#if _user != null}
 <p> {_userarray.email} </p>
-<p> {_userarray.firstname} </p>
+<p> {_userarray.uid} </p>
 {:else if _user == null}
 <p> Loading </p>
 {/if}
