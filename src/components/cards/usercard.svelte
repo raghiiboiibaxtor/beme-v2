@@ -4,11 +4,9 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
 
     const auth = getAuth();
-    let _user;
     let _uid;
     let _email;
     onAuthStateChanged(auth, (user) => {
-        _user = user;
     if (user) {
         _uid = user.uid;
         _email = user.email;
@@ -25,8 +23,8 @@
         pronouns: "",
         personalbio: "",
     };
+
     let _userdetails = [];
-    let _userid;
 
   // Reading Multiple Documents from Firestore
     const _collection = collection(_firestore_, "AllUsers");
@@ -43,25 +41,15 @@
         console.log(_fireuser)
     });
   
-
 </script>
 
+<!-- ######################## HTML BEGINS ############################### -->
 
-{#if _uid != _userid}
-    <p> _uid != _userid </p>
-{:else}
-<p> _uid == _userid</p>
-{/if}
-
-<p>{_uid}</p>
-<p>{_userid}</p>
-
-
-<h1> ****************************************</h1><br>
+<h1> ****************************************</h1>
 <h1> **Reading Dynamic Data From Firestore**</h1>
 {#each _userdetails as _info}
 
-{#if _info.userid == _uid}
+{#if _info.userid == _uid && _info.email == _email}
 <p>{_info.userid}</p>
 <p>{_info.firstname}</p>
 <p>{_info.email}</p>
