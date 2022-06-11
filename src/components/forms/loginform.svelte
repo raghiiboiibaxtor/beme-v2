@@ -32,16 +32,12 @@
   
     };
 
-
-
-
     const handleSubmit = () => {
       if (title == "Enter your details to login."){
         ; // Do nothing
       }
       else{ // Add user to Firestore
         addUserToFirestore();
-
       }
 };
 
