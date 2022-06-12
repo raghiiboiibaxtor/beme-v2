@@ -1,44 +1,45 @@
 <script>
     import './formsglobal.css'; // Importing global form css
+    import { getAuth,onAuthStateChanged} from "firebase/auth";
     import {_firestore_} from "../../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {collection, addDoc,} from "firebase/firestore";
+    import {updateDoc,onSnapshot,doc} from "firebase/firestore";
 
 
     // Creating list of variables that will pass data to Firestore ()
     let _aboutme = {
-      currentrole: "",
+      _about:{currentrole: "",
       interest: "",
       level_experience: "",
-      goals: "",
+      goals: ""}
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
-
-      /* Adding User to Firestore *
-     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */
-    const addUserToFirestore = async () => {
-      try {
-        await addDoc(collection(_firestore_, "AllUsers"), {
-          ..._aboutme,
-          createdAt: Date.now(),
-        });
-        // Waiting to catch errors
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    // Handling form submission. Passing addUserToFirestore() as well as relevant variables so that function executes when form submitted.
+    
     const handleSubmit = () => {
-      addUserToFirestore();
-      _aboutme = {
-      current_role: "",
-      interest: "",
-      level_experience: "",
-      goals: "",
-      };
+    
+      const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+        //successfully logging the current user signed ins data on console
+        const _uid = user.uid;       
+        
+
+        // console log reference of current user signed in
+        onSnapshot(doc(_firestore_, "AllUsers", _uid), (doc) => {
+            console.log("Current user logged in: ", doc.data());
+        })
+
+       //we only need update, since the user gets their data created / addedwhen they sign up, 
+        const _userupdate = doc(_firestore_, 'AllUsers', _uid)
+
+        updateDoc(_userupdate,{
+          ..._aboutme,
+          
+        })        
+      }})
       inputElement.focus();
-    };
+       }
+      
 
 </script>
 
@@ -56,7 +57,7 @@
         >
         <input
             type="text"
-            bind:value={_aboutme.currentrole}
+            bind:value={_aboutme._about.currentrole}
             bind:this={inputElement}
             placeholder="Add your current role"
             class="form-control"
@@ -69,7 +70,7 @@
         >
         <input
             type="text"
-            bind:value={_aboutme.interest}
+            bind:value={_aboutme._about.interest}
             bind:this={inputElement}
             placeholder="What are you specialising in?"
             class="form-control"
@@ -82,7 +83,7 @@
         >
         <input
             type="text"
-            bind:value={_aboutme.level_experience}
+            bind:value={_aboutme._about.level_experience}
             bind:this={inputElement}
             placeholder="What is your level of experience?"
             class="form-control"
@@ -95,7 +96,7 @@
         >
         <textarea
             type="text"
-            bind:value={_aboutme.goals}
+            bind:value={_aboutme._about.goals}
             bind:this={inputElement}
             placeholder="Shoot for the stars in 123 characters."
             class="textarea-form-control"
