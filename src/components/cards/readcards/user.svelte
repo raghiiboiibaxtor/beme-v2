@@ -1,7 +1,7 @@
 <script>
     import { getAuth, onAuthStateChanged } from "firebase/auth";
     import {onSnapshot, doc, getDoc, collection, query, where,} from "firebase/firestore";
-    import {_firestore_} from "../../routes/firebase/firebase.js"; 
+    import {_firestore_} from "../../../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
 
     // Grabbing auth from firebase
