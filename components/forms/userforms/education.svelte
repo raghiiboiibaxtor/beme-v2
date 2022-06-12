@@ -2,44 +2,40 @@
     import './formsglobal.css';
     // add data
     import {_firestore_} from "../../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
-    import {collection, addDoc,} from "firebase/firestore";
+    import {updateDoc,onSnapshot,doc} from "firebase/firestore";
+    import { getAuth,onAuthStateChanged} from "firebase/auth";
 
 
     // Creating list of variables that will pass data to Firestore ()
     let _education= {
-      qualification: "",
-      _: "",
-      _: "",
-      _favsubject: "",
-      year: "",
-    };
-
-    let inputElement; // Declaring input element used for binding ui to list variables
-
-    /* Adding User to Firestore*/
-    const addUserToFirestore = async () => {
-      try {
-        await addDoc(collection(_firestore_, "AllUsers"), {
-          ..._education,
-          createdAt: Date.now(),
-        });
-        // Waiting to catch errors
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    // Handling form submission & passing addUserToFirestore()
-    const handleSubmit = () => {
-      addUserToFirestore();
-      _education= { qualification: "",
+      _education:{qualification: "",
       study_level: "",
       study_place: "",
       fav_subject: "",
-      year: "",
-      };
-      inputElement.focus();
-    };
+      year: ""}};
+
+    let inputElement; // Declaring input element used for binding ui to list variables
+
+    const handleSubmit = () => {
+    
+    const auth = getAuth();
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+        //successfully logging the current user signed ins data on console
+        const _uid = user.uid;       
+        
+
+      // console log reference of current user signed in
+        onSnapshot(doc(_firestore_, "AllUsers", _uid), (doc) => {
+          console.log("Current user logged in: ", doc.data());})
+
+     //we only need update, since the user gets their data created / addedwhen they sign up, 
+      const _userupdate = doc(_firestore_, 'AllUsers', _uid)
+
+      updateDoc(_userupdate,{
+        ..._education})        
+    }})     
+    inputElement.focus();}
 
 </script>
 
@@ -55,7 +51,7 @@
         <!-- Binding firestore variables to ui and grabbing user entered text -->
         <input
             type="text"
-            bind:value={_education.qualification}
+            bind:value={_education._education.qualification}
             bind:this={inputElement}
             placeholder= "What did you graduate with?"
             class="form-control"
@@ -67,7 +63,7 @@
           <!-- Binding firestore variables to ui and grabbing user entered text -->
           <input
               type="text"
-              bind:value={_education._}
+              bind:value={_education._education.study_level}
               bind:this={inputElement}
               placeholder= "Eg: NZQA Level 8"
               class="form-control"
@@ -78,7 +74,7 @@
             <label for="title" class="label-input">Place of Study</label>
             <input
                 type="text"
-                bind:value={_education._}
+                bind:value={_education._education.study_place}
                 bind:this={inputElement}
                 placeholder= "Where did you study?"
                 class="form-control"
@@ -89,7 +85,7 @@
         <label for="description" class="label-input">Favourite Subject</label>
         <input
             type="text"
-            bind:value={_education._favsubject}
+            bind:value={_education._education.fav_subject}
             bind:this={inputElement}
             placeholder="What did you enjoy learning the most?"
             class="form-control"
@@ -100,7 +96,7 @@
           <label for="description" class="label-input">Graduation Year </label>
           <input
               type="text"
-              bind:value={_education.year}
+              bind:value={_education._education.year}
               bind:this={inputElement}
               placeholder="When did you graduate?"
               class="form-control"
