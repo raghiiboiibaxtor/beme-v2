@@ -3,7 +3,6 @@
     import {
      onSnapshot,
      collection,
-     addDoc,
      deleteDoc,
      doc,
      updateDoc,
@@ -33,7 +32,7 @@
      lastname: "",
    };
  
-   let _images = [];
+   let _snapshot = [];
    let inputElement;
  
    let editStatus = false;
@@ -43,7 +42,7 @@
    const grabData = onSnapshot(
      collection(_firestore_, "AllUsers"),
      (querySnapshot) => {
-       _images = querySnapshot.docs.map((doc) => ({
+      _snapshot = querySnapshot.docs.map((doc) => ({
          ...doc.data(),
          id: doc.id,
        }));
@@ -53,7 +52,7 @@
      }
    );
  
-   const deleteTask = async (id) => {
+   const deleteData = async (id) => {
      try {
        await deleteDoc(doc(_firestore_, "AllUsers", id));
      } catch (error) {
@@ -61,7 +60,7 @@
      }
    };
  
-   const editTask = (currenTask) => {
+   const editData = (currenTask) => {
      currentId = currenTask.id;
      _details.firstname = currenTask.firstname;
      _details.lastname = currenTask.lastname;
@@ -150,8 +149,8 @@
        </div>
        </div>
  {:else}
-       <!-- Render all _images -->
-       {#each _images as _details}
+       <!-- Render all _snapshot -->
+       {#each _snapshot as _details}
        {#if _details.userid == _uid && _details.email == _email} 
          <div>
            <div>
@@ -160,10 +159,10 @@
            <h1>{_details.lastname}</h1>
            <h1>{_details.userid}</h1>
            <div>
-             <span on:click={editTask(_details)}>
+             <span on:click={editData(_details)}>
              Edit
            </span>
-             <button on:click={deleteTask(_details.id)} >
+             <button on:click={deleteData(_details.id)} >
                <span>
                  Delete
                </span>
