@@ -7,11 +7,11 @@
 
   // Creating list of variables that will pass data to Firestore ()
   let _myprofile = {
-    _profile:{firstname: "",
+    firstname: "",
     lastname: "",
     email: "",
     phone: "",
-    bio:""}};
+    bio:""};
 
     
    let _showprofile=["name","surname","email"]
@@ -58,8 +58,9 @@
       <!-- Binding firestore variables to ui and grabbing user entered text -->
       <input
           type="text"
-          bind:value={_showprofile[0]}
-          placeholder={_showprofile[0]}
+          bind:value={_myprofile.firstname}
+          bind:this={inputElement}
+          placeholder="Enter your first name"
           class="form-control"
       />
       </div>
@@ -68,7 +69,7 @@
       <label for="description" class="label-input">Last Name</label>
       <input
           type="text"
-          bind:value={_myprofile._profile.lastname}
+          bind:value={_myprofile.lastname}
           bind:this={inputElement}
           placeholder="Enter your last name"
           class="form-control"
@@ -80,7 +81,7 @@
         >
         <input
             type="text"
-            bind:value={_myprofile._profile.email}
+            bind:value={_myprofile.email}
             bind:this={inputElement}
             placeholder="Enter your email."
             class="form-control"
@@ -92,7 +93,7 @@
           >
           <input
               type="text"
-              bind:value={_myprofile._profile.phone}
+              bind:value={_myprofile.phone}
               bind:this={inputElement}
               placeholder="Enter your contact number."
               class="form-control"
@@ -105,7 +106,7 @@
       >
       <input
           type="text"
-          bind:value={_myprofile._profile.bio}
+          bind:value={_myprofile.bio}
           bind:this={inputElement}
           placeholder="This is your elevator pitch"
           class="textarea-form-control"

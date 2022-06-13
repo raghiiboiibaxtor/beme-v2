@@ -1,5 +1,5 @@
 <script>
-    import {_firestore_} from "../../routes/firebase/firebase.js" //Importing Firestore component that was initialised in firebase.js
+    import {_firestore_} from "../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
     import {
      onSnapshot,
      collection,
