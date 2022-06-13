@@ -1,6 +1,6 @@
 <!--JAVASCRIPT BEGINS-->
 <script>
-	import AboutMeForm from "../components/forms/userforms/aboutmeform.svelte";
+	import AboutMe from "../components/forms/userforms/aboutme.svelte";
 	import UserProfile from "../components/forms/userforms/userprofile.svelte";
 	import FavExperience from "../components/forms/userforms/favexperience.svelte";
 	import PastWork from "../components/forms/userforms/pastwork.svelte";
@@ -20,7 +20,7 @@
 	<div class="right-items">
 		<div class="nested-horizontal-flex">
 			<div class="nested-left-items">
-				<AboutMeForm/>
+				<AboutMe/>
 				<Education/>
 			</div>
 			<div class="nested-right-items">
