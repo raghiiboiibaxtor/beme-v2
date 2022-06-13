@@ -6,6 +6,7 @@
 	import PastWork from "../components/forms/userforms/pastwork.svelte";
 	import Education from "../components/forms/userforms/education.svelte";
 	import Skills from "../components/forms/userforms/skills.svelte";
+	import Skills_list from "../components/forms/userforms/skills_list.svelte";
 </script>
 
 <!--HTML BEGINS-->
@@ -16,7 +17,7 @@
 			<UserProfile/>
 			<FavExperience/>
 		</div>
-	</div>
+	</div>+
 	<div class="right-items">
 		<div class="nested-horizontal-flex">
 			<div class="nested-left-items">
@@ -26,6 +27,7 @@
 			<div class="nested-right-items">
 				<Skills/>
 				<PastWork/>
+				<Skills_list/>
 			</div>
 		</div>
 	</div>
