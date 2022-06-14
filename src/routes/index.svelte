@@ -7,6 +7,11 @@
 	import Education from "../components/forms/userforms/education.svelte";
 	import Skills from "../components/forms/userforms/skills.svelte";
 	import Skills_list from "../components/forms/userforms/skills_list.svelte";
+<<<<<<< Updated upstream
+=======
+	import Dispay_skills from "../components/forms/userforms/displayskills.svelte";
+import Displayskills from "../components/forms/userforms/displayskills.svelte";
+>>>>>>> Stashed changes
 </script>
 
 <!--HTML BEGINS-->
@@ -25,6 +30,8 @@
 				<Education/>
 			</div>
 			<div class="nested-right-items">
+				<Skills_list/>
+				<Displayskills/>
 				<Skills/>
 				<PastWork/>
 				<Skills_list/>
