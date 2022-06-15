@@ -5,14 +5,14 @@
   import { onMount } from "svelte";
 
   const storage = getStorage();
-  const refs = ["user"];
+  const refs = ["userfile"];
   $: files = {
-    user: [],
+    userfile: [],
   };
 
   function getFileData() {
     files = {
-      work: [],
+      userfile: [],
     };
     const user = localStorage.getItem("uid");
     refs.forEach((folder) => {
@@ -39,11 +39,11 @@
 <button>
   Add User File
 </button>
-<UploadRow folder="user" functionProp={() => getFileData()} />
-  {#if files.user.length > 0}
+<UploadRow folder="userfile" functionProp={() => getFileData()} />
+  {#if files.userfile.length > 0}
     <Filetable
-      data={files.user}
-      folder="user"
+      data={files.userfile}
+      folder="userfile"
       functionProp={() => getFileData()}
     />
   {/if}
