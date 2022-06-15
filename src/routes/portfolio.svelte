@@ -4,7 +4,7 @@
    import UpdateData from "../components/forms/updatedata.svelte";
 //import Addimage from "../content/addimage.svelte";
    import AddImage from "../content/newaddimage.svelte";
-  import AddFile from "../content/addfile.svelte";
+  import AddFile from "../components/files/addfile.svelte";
 </script>
 
 <h1>This is the portfolio page</h1>
