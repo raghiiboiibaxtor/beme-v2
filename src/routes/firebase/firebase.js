@@ -17,7 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const _firestore_ = getFirestore(app); // Intialising Firestore as a variable and exporting it for global use.
-//export const _fbstorage_ = getStorage(app); // Grabbing a reference to the Firebase storage service, which is used to create more references in our storage bucket
+export const _fbstorage_ = getStorage(app); // Grabbing a reference to the Firebase storage service, which is used to create more references in our storage bucket
 
 
 export default app; // Exporting the "Firebase.WebApp" for global use.
