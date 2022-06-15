@@ -4,11 +4,11 @@
    import UpdateData from "../components/forms/updatedata.svelte";
 //import Addimage from "../content/addimage.svelte";
    import AddImage from "../content/newaddimage.svelte";
-  import NewAddFileCode from "../content/newaddfilecode.svelte";
+  import AddFile from "../content/addfile.svelte";
 </script>
 
 <h1>This is the portfolio page</h1>
 <UserCard/>
 <UpdateData/>
-<NewAddFileCode/>
+<AddFile/>
 
