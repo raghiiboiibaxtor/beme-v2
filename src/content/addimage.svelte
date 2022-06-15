@@ -1,16 +1,13 @@
 <script>
-     import {_firestore_} from "../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
+     import {_firestore_} from "../routes/firebase/firebase.js";
+      //Importing Firestore component that was initialised in firebase.js
+      import { getAuth,onAuthStateChanged} from "firebase/auth";
     import {
-      collection,
-      addDoc,
+      updateDoc,onSnapshot,doc
      
     } from "firebase/firestore";
     
-	let  avatar, fileinput;
-
-    let _fireavatar = {
-      avatar: "",
-    };
+    let  avatar, fileinput;
 	
 	const onFileSelected =(e)=>{
     let image = e.target.files[0];
@@ -20,23 +17,28 @@
                  avatar = e.target.result
             };
     }	
-
-     /* Adding User to Firestore *
-     *** Async function declared with nested Try/Catch(error handling). Code will continue to execute (even if function is long running) until promise (await) has been made. */ 
-     const addUserToFirestore = async () => {
-      try {
-        await addDoc(collection(_firestore_, "AllUsers"), {
-          ... fileinput,
-          createdAt: Date.now(),
-        });
-        // Waiting to catch errors
-      } catch (error) {
-        console.error(error);
-      }
-    };
         
     const handleClick = () => {
-      addUserToFirestore();
+      const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+        if (user) {
+        //successfully logging the current user signed ins data on console
+        const _uid = user.uid;       
+        
+        // console log reference of current user signed in
+        onSnapshot(doc(_firestore_, "AllUsers", _uid), (doc) => {
+            console.log("Current user logged in: ", doc.data());
+        })
+
+    
+        //we only need update, since the user gets their data created / addedwhen they sign up, 
+        const _imageupdate = doc(_firestore_, 'AllUsers', _uid)
+        updateDoc(_imageupdate,{
+            ...fileinput,   
+        })        
+        }})
+       
+     
     }
 
 </script>
@@ -58,6 +60,9 @@
       
 
 </div>
+
+<img class="upload" src={avatar} alt="" />
+
 <style>
 	#app{
 	display:flex;
