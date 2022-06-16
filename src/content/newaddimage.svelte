@@ -57,15 +57,24 @@
     }
 
     async function upload(e) {
-        if (e.target.files && e.target.files.length > 0) {
-        const file = e.target.files[0];
-        uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
-        });
-
-       // storageRef.child(file.name).putFile(file);
-        console.log(e.target.files); 
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      if (window.BrowserImageResizer) {
+        const blob = await window.BrowserImageResizer.readAndCompressImage(
+          file,
+          {
+            quality: 0.8,
+            maxWidth: 400,
+            maxHeight: 400
+          }
+        );
+        await storageRef.child(file.name).put(blob);
+      } else {
+        await storageRef.child(file.name).put(file);
+      }
+      record.file = file.name;
     }
+  
     /*
     if (e.target.files && e.target.files.length > 0) {
         const file = e.target.files[0];
