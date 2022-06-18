@@ -4,16 +4,19 @@
   import { getStorage, ref, getMetadata, listAll, getDownloadURL } from "firebase/storage";
   import { onMount } from "svelte";
 
+
   const storage = getStorage();
   const refs = ["userfile"];
   $: files = {
     userfile: [],
   };
 
+
   function getFileData() {
     files = {
       userfile: [],
     };
+
     const user = localStorage.getItem("uid");
     refs.forEach((folder) => {
       let reference = ref(storage, `${user}/${folder}`);
@@ -27,6 +30,7 @@
         })
         .catch((error) => {});
     });
+
   }
 
   onMount(() => {
@@ -35,11 +39,10 @@
   });
 
   let img;
-
+  
   getDownloadURL(ref(storage, '_MG_0088.jpg'))
   .then((url) => {
-    // `url` is the download URL for 'images/stars.jpg'
-
+    // `url` is the download URL for targeted image'
     // This can be downloaded directly:
     const xhr = new XMLHttpRequest();
     xhr.responseType = 'blob';
@@ -55,10 +58,7 @@
   })
   .catch((error) => {
     // Handle any errors
-  });
-
-
-
+  }); 
 
 </script>
 
@@ -72,8 +72,11 @@
       folder="userfile"
       functionProp={() => getFileData()}
     />
+   
   {/if}
 
   <img id="myimg" alt=""/> 
+  
+ 
  
 
