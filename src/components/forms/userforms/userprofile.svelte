@@ -9,7 +9,7 @@
   let _myprofile = {
     firstname: "",
     lastname: "",
-    email: "",
+    workemail: "",
     phone: "",
     bio:""};
 

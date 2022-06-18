@@ -7,8 +7,8 @@
   import AddFile from "../components/files/addfile.svelte";
 </script>
 
-<h1>This is the portfolio page</h1>
 <UserCard/>
+<!--
 <UpdateData/>
 <AddFile/>
-
+-->

@@ -3,6 +3,9 @@
     import {onSnapshot, doc, getDoc, collection, query, where,} from "firebase/firestore";
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
+    import "./cardsglobal.css";
+    import GrabFile from "../files/grabfile.svelte";
+    import LinkBar from "../links/linkbar.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -27,6 +30,11 @@
         workemail: "",
         pronouns: "",
         personalbio: "",
+        currentrole: "",
+        experiencelevel: "",
+        fieldofinterest: "",
+        profgoals: "",
+        currentrole:"",
     };
 
     // Creating array 
@@ -52,23 +60,57 @@
 </script>
 
 <!-- HTML BEGINS -->
-
-<h1> **Reading Dynamic Data From Firestore**</h1>
-
-<!-- Each loop, executing the _userdetails[] array -->
 {#each _userdetails as _info}
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
+
+
+<div class="body-container">
+    <div class="card-container">
+
+        <GrabFile/>
+        <div class="horizontal-flex"> 
+            <div class="left-items"> 
+                <h1 class="card-heading"> {_info.firstname}</h1>
+                <h1 class="card-heading">{_info.lastname}</h1>
+            </div>
+            </div>
+            <div class="vertical-flex-control-box">
+            <h3 class="card-subheading">{_info.bio}</h3>
+            <div class="horizontal-flex">
+                <div class="left-items">
+                    <p class="small-text">{_info.pronouns}</p>
+                </div>
+                <div class="right-items">
+                    <p class="small-text"> {_info.workemail}</p>
+                </div>
+        </div>
+        <LinkBar/>
+        <hr class="underline-flex">
+        </div>
+        <div class="vertical-flex-control-box">
+            <div class="title-display-flex">
+                <h4 class="card-h5">Current Role</h4>
+                <h3 class="card-display-text">{_info.currentrole}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">Field of Interest</h4>
+                <h3 class="card-display-text">{_info.fieldofinterest}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">Level of Experience</h4>
+                <h3 class="card-display-text">{_info.experiencelevel}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">Professional Goals</h4>
+                <h3 class="card-display-text">{_info.profgoals}</h3>
+            </div>
+       </div>
+       
+    </div>
+</div>
+
+<!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->
-<p>{_info.userid}</p>
-<p>{_info.email}</p>
-<p>{_info.firstname}</p>
-<p>{_info.lastname}</p>
-<p>{_info.pronouns}</p>
-<p>{_info.workemail}</p>
-<p>{_info.bio}</p>
 {/if}
- 
 {/each}
-<h1> ****</h1>
-<br>
