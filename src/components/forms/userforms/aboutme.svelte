@@ -6,11 +6,12 @@
 
 
   // Creating list of variables that will pass data to Firestore ()
-  let _aboutme = {
+  let _aboutme = { 
+    _userabout:{
     currentrole: "",
     interest: "",
     level_experience: "",
-    goals: "" };
+    goals: "" }};
 
   let inputElement; // Declaring input element used for binding ui to list variables
   
@@ -56,7 +57,7 @@
       >
       <input
           type="text"
-          bind:value={_aboutme.currentrole}
+          bind:value={_aboutme._userabout.currentrole}
           bind:this={inputElement}
           placeholder="Add your current role"
           class="form-control"
@@ -69,7 +70,7 @@
       >
       <input
           type="text"
-          bind:value={_aboutme.interest}
+          bind:value={_aboutme._userabout.interest}
           bind:this={inputElement}
           placeholder="What are you specialising in?"
           class="form-control"
@@ -82,7 +83,7 @@
       >
       <input
           type="text"
-          bind:value={_aboutme.level_experience}
+          bind:value={_aboutme._userabout.level_experience}
           bind:this={inputElement}
           placeholder="What is your level of experience?"
           class="form-control"
@@ -95,7 +96,7 @@
       >
       <textarea
           type="text"
-          bind:value={_aboutme.goals}
+          bind:value={_aboutme._userabout.goals}
           bind:this={inputElement}
           placeholder="Shoot for the stars in 123 characters."
           class="textarea-form-control"

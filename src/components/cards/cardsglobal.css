@@ -1,5 +1,4 @@
 .body-container{
-    
     display: flex;
     flex-direction: column;
     width: 333px;
@@ -97,6 +96,10 @@
     margin-top: 0.55rem;
 }
 
+.title-display-flex-top{
+    margin-top: 0;
+}
+
 .card-h5{
     margin-bottom: 0.23rem;
     font-family: 'Montserrat';
@@ -105,6 +108,20 @@
     font-size: 14px;
     letter-spacing: 0.23px;
     color: var(--placeholdertext);
+}
+
+.card-h2{
+    margin-left: 0.23rem;
+    margin-bottom: 0.55rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 119.7%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #BDD1F9;
 }
 
 .card-display-text{
