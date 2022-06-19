@@ -34,6 +34,7 @@
     flex-direction: row;
 }
 
+
 .left-items{
     width: auto;
     display: flex;
@@ -133,6 +134,17 @@
     letter-spacing: -0.02em;
     color: var(--dark);
     margin-bottom: 0.23rem;
+}
+
+.left-skills{
+    width: auto;
+    margin-right: 0.23rem;
+}
+
+
+.right-skills{
+    width: auto;
+    margin-left: 0.23rem;
 }
 
 
