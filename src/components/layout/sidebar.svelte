@@ -49,7 +49,7 @@
     width: 10.23rem;
     height: 90vh;
     background-color: var(--light);
-    box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
+    box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.23);
     backdrop-filter: blur(4px);
     border-radius: 0px 0px 123px 0px;
     padding: 1.23rem;
@@ -77,17 +77,21 @@ button{
       text-align: left;
       color: var(--primary);
       background-color: var(--light);
-      font-family: 'Inter';
+      font-family: 'Montserrat';
       font-style: normal;
-      font-weight: 400;
-      font-size: 16px;
+      font-weight: 500;
+      font-size: 14px;
       letter-spacing: 0.023rem;
-      border: none;
-      border-radius: 23rem;
+      border-radius: 0.88rem;
+    }
+
+    button:hover{
+      background-color: rgba(112, 156, 212, 0.055);
     }
 
     button.selected {
-        color: white;
+      border-radius: 23rem;
+        color: var(--light);
 		    background-image: linear-gradient(
           45deg,
           hsl(237deg 81% 60%) 0%,
@@ -95,7 +99,12 @@ button{
           hsl(210deg 100% 50%) 40%,
           hsl(205deg 100% 50%) 60%,
           hsl(201deg 100% 50%) 80%,
-          hsl(202deg 100% 61%) 100% );
-        
+          hsl(202deg 100% 61%) 100% );     
 	}
+
+  button.selected:hover {
+      border: 0.088rem solid var(--light);
+	}
+
+
 </style>
