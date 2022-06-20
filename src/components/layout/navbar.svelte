@@ -20,6 +20,12 @@
   let menu = false;
   let current = '/';
   let url = $page.url.pathname;
+
+
+    function sharePortfolio() {
+      navigator.clipboard.writeText(`http://localhost:3000${url}`);
+    }
+
 </script>
 
 
@@ -36,7 +42,7 @@
     <h1 class="user-title"> Hey Lesedi!</h1>
     <div class="share-portfolio">
       <div class="share-icon"></div>
-    <button class="share-portfolio-button"> Share </button></div>
+    <button class="share-portfolio-button" on:click|once={sharePortfolio()}> Share </button></div>
 
   </div>
 {#if clicked == true}
@@ -65,6 +71,9 @@
   }
 
   .share-portfolio-button{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
     font-size: 14px;
     color: var(--light);
     width: 12.3rem;
@@ -74,7 +83,8 @@
     border-radius: 123px;
     border: none;
     padding: 0.44rem;
-   margin-right: 0.88rem;
+    margin-right: 0.88rem;
+    letter-spacing: 0.023rem;
     
   }
 
@@ -230,7 +240,7 @@
   }
 
   .share-portfolio-button{
-    width: 4.4rem;
+    width: 3.3rem;
   }
 
   .beme-top-logo{

@@ -1,0 +1,27 @@
+[
+    {
+        "imagepath": "src/content/images/mywork/media/mywork1.jpg",
+        "name": "MyWorkImage1"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork2.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork3.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork4.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork5.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork6.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork7.jpg"
+    },
+    {
+        "imagepath": "src/content/images/mywork/media/mywork8.jpg"
+    }
+]
