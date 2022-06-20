@@ -1,0 +1,176 @@
+.body-container{
+    display: flex;
+    flex-direction: column;
+    width: 333px;
+}
+
+.card-container{
+    width: 100%;
+    height: auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    margin-bottom: 1.23rem;
+    padding: 1.23rem;
+    background-color: var(--light);
+    border: 2.23px solid rgba(112, 156, 212, 0.23);
+    box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
+    border-radius: 23px;
+}
+
+.card-container:hover{
+    border: 2.23px solid rgba(112, 156, 212, 0.0);
+    background: 
+      linear-gradient(var(--light), var(--light)) padding-box,
+      linear-gradient(90deg, #5271FF 0%, #38B6FF 100%) border-box;
+        box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
+        border-radius: 23px;
+}
+
+.horizontal-flex{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.left-items{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.right-items{
+    margin-left: 1.23rem;
+    width: auto;
+}
+
+.vertical-flex-control-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-heading{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 33px;
+    letter-spacing: -0.02em;
+    color: var(--main);
+    margin-right: 0.55rem;
+}
+
+.card-subheading{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 119.7%;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 0.55rem;
+}
+
+.small-text{
+    width: auto;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 119.7%;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 0.88rem;
+}
+
+.underline-flex{
+    width: 100%;
+    border: 0.23px solid rgba(112, 156, 212, 0.33);
+    box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
+    border-radius: 23rem;
+}
+
+.title-display-flex{
+    margin-top: 0.55rem;
+}
+
+.title-display-flex-top{
+    margin-top: 0;
+}
+
+.card-h5{
+    margin-bottom: 0.23rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.23px;
+    color: var(--placeholdertext);
+}
+
+.card-h2{
+    margin-left: 0.23rem;
+    margin-bottom: 0.55rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 119.7%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.02em;
+    color: #BDD1F9;
+}
+
+.card-display-text{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 119.7%;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 0.23rem;
+}
+
+.left-skills{
+    width: auto;
+    margin-right: 0.23rem;
+}
+
+
+.right-skills{
+    width: auto;
+    margin-left: 0.23rem;
+}
+
+
+
+
+
+/****************** MEDIA QUERY BEGINS *************************/
+/* Used to create responsive websites, by declaring min & max screen sizes*/
+
+@media only screen and (max-width: 777px){
+
+.body-container{
+    padding-top: 1.23rem;
+    margin-left: 1.23rem;
+    width: 444px;
+}
+
+.form-heading{
+    font-size: 33px;
+}
+
+.form-subtitle{
+    font-size: 16px;
+}
+
+
+}
+/* MEDIA QUERY ENDS */
+/*******************************************/

@@ -7,11 +7,12 @@
 
     // Creating list of variables that will pass data to Firestore ()
     let _info = {
+      _favexperience:{
       worktitle: "",
       time: "",
       newskill: "",
-      skillsapplied:{skill1:"",skill2:"",skill3:"",skill4:""}
-    };
+      favskillsapplied:{favskill1:"",favskill2:"",favskill3:"",favskill4:""}
+    }};
 
     let inputElement; // Declaring input element used for binding ui to list variables
   
@@ -57,7 +58,7 @@
         <!-- Binding firestore variables to ui and grabbing user entered text -->
         <input
             type="text"
-            bind:value={_info.worktitle}
+            bind:value={_info._favexperience.worktitle}
             bind:this={inputElement}
             placeholder= "Describe your role or position"
             class="form-control"
@@ -68,7 +69,7 @@
           <label for="title" class="label-input">Length of Time</label>
           <input
               type="text"
-              bind:value={_info.time}
+              bind:value={_info._favexperience.time}
               bind:this={inputElement}
               placeholder= "How long did you work for?"
               class="form-control"
@@ -79,7 +80,7 @@
         <label for="description" class="label-input">New Skill Learned</label>
         <input
             type="text"
-            bind:value={_info.newskill}
+            bind:value={_info._favexperience.newskill}
             bind:this={inputElement}
             placeholder="Eg: Confidence"
             class="form-control"
@@ -94,14 +95,14 @@
               <div class="left-items">
                 <input
                 type="text"
-                bind:value={_info.skill1}
+                bind:value={_info._favexperience.favskillsapplied.favskill1}
                 bind:this={inputElement}
                 placeholder="Eg: Confidence"
                 class="skill-form-control"/> </div>
               <div class="right-items">
                 <input
                 type="text"
-                bind:value={_info.skill2}
+                bind:value={_info._favexperience.favskillsapplied.favskill2}
                 bind:this={inputElement}
                 placeholder="Eg: Communication"
                 class="skill-form-control"/> </div>
@@ -110,14 +111,14 @@
               <div class="left-items">
                 <input
                 type="text"
-                bind:value={_info.skill3}
+                bind:value={_info._favexperience.favskillsapplied.favskill3}
                 bind:this={inputElement}
                 placeholder="Eg: Time Management"
                 class="skill-form-control"/> </div>
               <div class="right-items">
                 <input
                 type="text"
-                bind:value={_info.skill4}
+                bind:value={_info._favexperience.favskillsapplied.favskill4}
                 bind:this={inputElement}
                 placeholder="Eg: Patience"
                 class="skill-form-control"/> </div>

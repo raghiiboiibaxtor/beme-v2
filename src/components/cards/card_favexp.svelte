@@ -3,6 +3,9 @@
     import {onSnapshot, doc, getDoc, collection, query, where,} from "firebase/firestore";
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
+    import "./cardsglobal.css";
+    import GrabFile from "../files/grabfile.svelte";
+    import LinkBar from "../links/linkbar.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -19,15 +22,6 @@
         // User is signed out (logic to be included here)
     }
     });
-
-    // Creating struct / list
-    let _info = {
-        firstname: "",
-        lastname: "",
-        workemail: "",
-        pronouns: "",
-        personalbio: "",
-    };
 
     // Creating array 
     let _userid;
@@ -52,23 +46,37 @@
 </script>
 
 <!-- HTML BEGINS -->
-
-<h1> **Reading Dynamic Data From Firestore**</h1>
-
-<!-- Each loop, executing the _userdetails[] array -->
 {#each _userdetails as _info}
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
+
+
+<div class="body-container">
+    <h2 class="card-h2">Favourite Experience</h2>
+    <div class="card-container">
+        <div class="vertical-flex-control-box">
+            <div class="title-display-flex-top">
+                <h4 class="card-h5">Title</h4>
+                <h3 class="card-display-text">{_info._favexperience.worktitle}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">Field of Interest</h4>
+                <h3 class="card-display-text">{_info._favexperience.time}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">New Skill Learned</h4>
+                <h3 class="card-display-text">{_info._favexperience.newskill}</h3>
+            </div>
+            <div class="title-display-flex">
+                <h4 class="card-h5">Skills Applied</h4>
+                <h3 class="card-display-text">{_info._favexperience.favskillsapplied.favskill1}</h3>
+            </div>
+       </div>
+       
+    </div>
+</div>
+
+<!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->
-<p>{_info.userid}</p>
-<p>{_info.email}</p>
-<p>{_info.firstname}</p>
-<p>{_info.lastname}</p>
-<p>{_info.pronouns}</p>
-<p>{_info.workemail}</p>
-<p>{_info.bio}</p>
 {/if}
- 
 {/each}
-<h1> ****</h1>
-<br>
