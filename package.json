@@ -9,6 +9,7 @@
     "prepare": "svelte-kit sync"
   },
   "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "autoprefixer": "^10.4.4",

@@ -4,7 +4,7 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
-    import SkillBubbles from "../skillbubbles.svelte";
+    import SkillBubbles from "../elements/skillbubbles.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
