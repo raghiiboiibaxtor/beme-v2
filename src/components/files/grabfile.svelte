@@ -35,7 +35,8 @@
     
    <style>
     #myimg {
-        border-radius: 23px;
+        border-radius: 16px;
+        margin-top: 0.55rem;
         margin-bottom: 0.55rem;
     }
    </style>

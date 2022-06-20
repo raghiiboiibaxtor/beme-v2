@@ -4,8 +4,7 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
-    import GrabFile from "../files/grabfile.svelte";
-    import LinkBar from "../links/linkbar.svelte";
+   import SkillBubbles from "../elements/skillbubbles.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -68,8 +67,14 @@
                 <h3 class="card-display-text">{_info._experience1.date}</h3>
             </div>
             <div class="title-display-flex">
-                <h4 class="card-h5">Top Skill Learned / Utilised</h4>
-                <h3 class="card-display-text">{_info._experience1.skill_applied}</h3>
+                <h4 class="card-h5">Top Skills Utilised</h4>
+                <div class="horizontal-flex">
+                    <div class="left-skills">
+                        <SkillBubbles _skill={_info._experience1.skill_applied}/>
+                        <SkillBubbles _skill={_info._skills.skill2}/>
+                       
+                    </div>
+                    </div>
             </div>
        </div>
        

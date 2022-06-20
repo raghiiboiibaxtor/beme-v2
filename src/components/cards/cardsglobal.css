@@ -17,8 +17,10 @@
     flex-direction: column;
     align-items: left;
     justify-content: space-between;
-    margin-bottom: 1.23rem;
-    padding: 1.23rem;
+    padding-top: 0.55rem;
+    padding-left: 1.23rem;
+    padding-right: 1.23rem;
+    padding-bottom: 1.23rem;
     background-color: var(--light);
     border: 2.23px solid rgba(112, 156, 212, 0.23);
     box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
@@ -154,7 +156,7 @@
 }
 
 .margin-break{
-    margin-top: 1.23rem;
+    margin-top: 0.23rem;
 }
 
 

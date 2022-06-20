@@ -65,12 +65,15 @@
                 <SkillBubbles _skill={_info._skills.skill1}/>
                 <SkillBubbles _skill={_info._skills.skill2}/>
                 <SkillBubbles _skill={_info._skills.skill3}/>
+                <SkillBubbles _skill={_info._skills.skill4}/>
                
             </div>
             <div class="right-skills">
-                <SkillBubbles _skill={_info._skills.skill4}/>
+              
                 <SkillBubbles _skill={_info._skills.skill5}/>
                 <SkillBubbles _skill={_info._skills.skill6}/>
+                <SkillBubbles _skill={_info._skills.skill7}/>
+                <SkillBubbles _skill={_info._skills.skill8}/>
 
             </div>
     </div>

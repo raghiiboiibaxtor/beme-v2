@@ -40,7 +40,9 @@
     </button>
 
     <img class="beme-top-logo" src="src/content/images/BeMeSidebarLogo.png" alt="BeMe Logo">
+    <div class="user-title">
     <Greeting/>
+  </div>
    
     <div class="share-portfolio">
       <div class="share-icon"></div>

@@ -66,6 +66,7 @@
 }
 
 .top-nav{
+  width: 100%;
   position: sticky;
   top: 0;
   left: 0;
@@ -90,7 +91,7 @@
 .page-slot{
   width: 100%;
   height: 100%;
-  margin-left: 10.23rem;
+  margin-left: 11.23rem;
 }
 
 
