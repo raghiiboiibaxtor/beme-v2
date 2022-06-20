@@ -75,7 +75,7 @@
   }
 
   .share-portfolio-button{
-    font-family: 'Inter';
+    font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -106,7 +106,7 @@
 
   .user-title{
     width: 88%;
-    margin-left: 2.23rem;
+    
     text-align: left;
     font-family: 'Inter';
     font-style: normal;
