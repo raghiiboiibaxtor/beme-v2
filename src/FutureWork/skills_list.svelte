@@ -1,14 +1,10 @@
 <script>
     import {_firestore_} from "../../../routes/firebase/firebase.js";
     import { getAuth,onAuthStateChanged} from "firebase/auth";
-    import {updateDoc,onSnapshot,doc, arrayUnion, getDoc} from "firebase/firestore";
-    
-    
-    
-    let _skill_set2 = {
-    _skills:[]}
-    
-    let usersskill=[]
+    import {updateDoc,onSnapshot,doc, arrayUnion} from "firebase/firestore";
+       
+       
+    let newskill
     
     const handleSubmit = () => {
       const auth = getAuth();
@@ -23,23 +19,25 @@
             console.log("Current user logged in: ", doc.data());})
     
        //we only need update, since the user gets their data created / addedwhen they sign up, 
-        const _getuserskills = doc(_firestore_, 'AllUsers', _uid)
+        const _userupdate = doc(_firestore_, 'AllUsers', _uid)
     
-         usersskill= getDoc(_getuserskills)
-          
+        updateDoc(_userupdate,{
+          arrayUnion:newskill})       
+      
+      
         }})}     
     
     </script>
     
     
-    <p>List of skills</p>
-    {#each usersskill as {skill},i}
-    <li>
-        {i+1}:{skill}
-        <br>
-    </li>>
-    {/each}
+    
+
+    <p> My Skills List </p>
+    <form on:submit|preventDefault={handleSubmit} class="form-card">
+    <button class="button">Add Skills</button>
+    <input bind:value ={newskill}>
+    
         
+    <br>
    
-   
-   
+    </form>
