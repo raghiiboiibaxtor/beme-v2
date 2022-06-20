@@ -34,6 +34,7 @@
   });
 </script>
 
+{#if login != false}
 <!--HTML BEGINS-->
 <div class="page-layout">
   <div class="top-nav">
@@ -48,6 +49,7 @@
   </div>
 </div>
 </div>
+{/if}
 
 <!--CSS BEGINS-->
 <style>
@@ -66,6 +68,7 @@
 .top-nav{
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 99;
 }
 

@@ -4,8 +4,8 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
-    import GrabFile from "../files/grabfile.svelte";
-    import LinkBar from "../links/linkbar.svelte";
+    import SkillBubbles from "../elements/skillbubbles.svelte";
+
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -51,7 +51,7 @@
 {#if _info.userid == _uid && _info.email == _email} 
 
 
-<div class="body-container">
+<div class="skill-body-container">
     <h2 class="card-h2">Favourite Experience</h2>
     <div class="card-container">
         <div class="vertical-flex-control-box">
@@ -69,7 +69,18 @@
             </div>
             <div class="title-display-flex">
                 <h4 class="card-h5">Skills Applied</h4>
-                <h3 class="card-display-text">{_info._favexperience.favskillsapplied.favskill1}</h3>
+                <div class="horizontal-flex">
+                    <div class="left-skills">
+                        <SkillBubbles _skill={_info._skills.skill1}/>
+                        <SkillBubbles _skill={_info._skills.skill2}/>
+                       
+                    </div>
+                    <div class="right-skills">
+                        <SkillBubbles _skill={_info._skills.skill3}/>
+                        <SkillBubbles _skill={_info._skills.skill4}/>
+        
+                    </div>
+                    </div>
             </div>
        </div>
        

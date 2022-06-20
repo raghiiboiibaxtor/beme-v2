@@ -50,7 +50,7 @@
 {#if _info.userid == _uid && _info.email == _email} 
 
 
-<div class="body-container">
+<div class="skill-body-container">
     <h2 class="card-h2">Skills</h2>
     <div class="card-container">
         <div class="vertical-flex-control-box">
@@ -59,20 +59,22 @@
                 <h3 class="card-display-text">{_info._traits.trait1}</h3>
             </div>
            </div>
+           <div class="margin-break">
            <div class="horizontal-flex">
             <div class="left-skills">
                 <SkillBubbles _skill={_info._skills.skill1}/>
                 <SkillBubbles _skill={_info._skills.skill2}/>
                 <SkillBubbles _skill={_info._skills.skill3}/>
-                <SkillBubbles _skill={_info._skills.skill4}/>
+               
             </div>
             <div class="right-skills">
+                <SkillBubbles _skill={_info._skills.skill4}/>
                 <SkillBubbles _skill={_info._skills.skill5}/>
                 <SkillBubbles _skill={_info._skills.skill6}/>
-                <SkillBubbles _skill={_info._skills.skill7}/>
-                <SkillBubbles _skill={_info._skills.skill8}/>
+
             </div>
     </div>
+</div>
     </div>
 </div>
 

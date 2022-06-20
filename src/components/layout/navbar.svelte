@@ -4,6 +4,7 @@
   import {isLoggedIn} from '../../routes/stores/authstore.js';
   import '../../../src/global.css';
   import {page} from '$app/stores';
+  import Greeting from './greeting.svelte';
 
   const auth = getAuth(); // Setting constant variable to get the returned value from getAuth function.
   
@@ -39,7 +40,8 @@
     </button>
 
     <img class="beme-top-logo" src="src/content/images/BeMeSidebarLogo.png" alt="BeMe Logo">
-    <h1 class="user-title"> Hey Lesedi!</h1>
+    <Greeting/>
+   
     <div class="share-portfolio">
       <div class="share-icon"></div>
     <button class="share-portfolio-button" on:click|once={sharePortfolio()}> Share </button></div>

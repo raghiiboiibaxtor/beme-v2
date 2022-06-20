@@ -4,6 +4,12 @@
     width: 333px;
 }
 
+.skill-body-container{
+    display: flex;
+    flex-direction: column;
+    width: 444px;
+}
+
 .card-container{
     width: 100%;
     height: auto; 
@@ -105,10 +111,10 @@
     margin-bottom: 0.23rem;
     font-family: 'Montserrat';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
-    letter-spacing: 0.23px;
-    color: var(--placeholdertext);
+    letter-spacing: 0.33px;
+    color: var(--primary);
 }
 
 .card-h2{
@@ -122,14 +128,14 @@
     display: flex;
     align-items: center;
     letter-spacing: -0.02em;
-    color: #BDD1F9;
+    color: var(--primary);
 }
 
 .card-display-text{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 119.7%;
     letter-spacing: -0.02em;
     color: var(--dark);
@@ -137,14 +143,18 @@
 }
 
 .left-skills{
-    width: auto;
+    width: 100%;
     margin-right: 0.23rem;
 }
 
 
 .right-skills{
-    width: auto;
+    width: 100%;
     margin-left: 0.23rem;
+}
+
+.margin-break{
+    margin-top: 1.23rem;
 }
 
 
@@ -168,6 +178,18 @@
 
 .form-subtitle{
     font-size: 16px;
+}
+
+
+.left-skills{
+    width: auto;
+    margin-right: 0.23rem;
+}
+
+
+.right-skills{
+    width: auto;
+    margin-left: 0.23rem;
 }
 
 

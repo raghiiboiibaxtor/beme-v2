@@ -1,9 +1,8 @@
 <!--Please note: This page has not been implemented yet as it is not part of this brief's scope-->
 <script>
-    import Addreaduser from "../components/forms/addreaduser.svelte";
-    import LargeGallery from "../content/largegallery.svelte";
-    import SmallGallery from "../content/smallgallery.svelte";
-    import AllGallery from "../content/allgallery.svelte";
+    import LargeGallery from "../components/gallery/largegallery.svelte";
+    import SmallGallery from "../components/gallery/smallgallery.svelte";
+    import AllGallery from "../components/gallery/allgallery.svelte";
 </script>
 
 <div class="body-container">
@@ -24,6 +23,7 @@
 <style>
 
 .body-container{
+    max-width: 100vw;
     margin-top: 0.88rem;
     margin-left: 0.88rem;
 }

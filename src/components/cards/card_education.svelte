@@ -71,10 +71,7 @@
                 <h4 class="card-h5">Favourite Subject</h4>
                 <h3 class="card-display-text">{_info._education.fav_subject}</h3>
             </div>
-            <div class="title-display-flex">
-                <h4 class="card-h5">Year</h4>
-                <h3 class="card-display-text">{_info._education.year}</h3>
-            </div>
+           
        </div>
        
     </div>
