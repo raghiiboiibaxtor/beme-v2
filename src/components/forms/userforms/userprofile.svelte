@@ -82,7 +82,7 @@
         >
         <input
             type="text"
-            bind:value={_myprofile._myprofile.email}
+            bind:value={_myprofile._myprofile.workemail}
             bind:this={inputElement}
             placeholder="Enter your email."
             class="form-control"

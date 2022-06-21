@@ -12,7 +12,6 @@
 
 .card-container{
     width: 100%;
-    height: auto; 
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -58,7 +57,6 @@
 .vertical-flex-control-box{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .card-heading{
@@ -119,13 +117,22 @@
     color: var(--primary);
 }
 
+.card-h5-skills{
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.33px;
+    color: var(--primary);
+}
+
 .card-h2{
     margin-left: 0.23rem;
     margin-bottom: 0.55rem;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 119.7%;
     display: flex;
     align-items: center;
@@ -143,6 +150,8 @@
     color: var(--dark);
     margin-bottom: 0.23rem;
 }
+
+
 
 .left-skills{
     width: 100%;

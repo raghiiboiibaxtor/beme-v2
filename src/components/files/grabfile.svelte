@@ -3,13 +3,13 @@
     import UploadRow from "./uploadRow.svelte";
     import { getStorage, ref, getDownloadURL } from "firebase/storage";
 
-  
+
   
     const storage = getStorage();
   
     let img;
     
-    getDownloadURL(ref(storage, '_MG_0088.jpg'))
+    getDownloadURL(ref(storage, '_MG_0088.jpg')) // what I think will work =>  `${uid}/userfile/${upload.name}` (we'll need to grab uid & filename first)
     .then((url) => {
       // `url` is the download URL for targeted image'
       // This can be downloaded directly:
@@ -35,6 +35,8 @@
     
    <style>
     #myimg {
+        width: 100% !important;
+        height: auto !important;
         border-radius: 16px;
         margin-top: 0.55rem;
         margin-bottom: 0.55rem;

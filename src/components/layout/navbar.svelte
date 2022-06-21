@@ -7,7 +7,7 @@
   import Greeting from './greeting.svelte';
 
   const auth = getAuth(); // Setting constant variable to get the returned value from getAuth function.
-  
+  let uid;
   //Logout function
   function Logout(){
       signOut(auth)

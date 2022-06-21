@@ -8,6 +8,7 @@ let sections = [
 		 'src/content/images/mywork/media/mywork4.jpg',
 		 'src/content/images/mywork/media/mywork5.jpg',
          'src/content/images/mywork/media/mywork6.jpg',
+		 
 ];
 
 

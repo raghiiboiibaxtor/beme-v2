@@ -67,7 +67,7 @@
 
 .top-nav{
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 99;
@@ -84,14 +84,17 @@
   width: 10.23rem;
   height: 100%;
   position: fixed;
+  top: 4.23rem;
   left: 0;
   z-index: 88;
 }
 
 .page-slot{
-  width: 100%;
+  width: calc(100% - 11.23rem);
   height: 100%;
-  margin-left: 11.23rem;
+  margin-left: 10.23rem;
+  margin-top: 5rem;
+  padding-left: 1.23rem;
 }
 
 
@@ -102,10 +105,13 @@
 
   .page-margin-slot{
     margin: 0;
+    
   }
 
   .page-slot{
     margin: 0;
+    margin-top: 4.23rem;
+    padding: 0;
 }
 
 

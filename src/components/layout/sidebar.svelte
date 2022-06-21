@@ -5,6 +5,7 @@
   import {isLoggedIn} from '../../routes/stores/authstore.js';
   import '../../../src/global.css';
   import {page} from '$app/stores';
+  import Icon from '@iconify/svelte';
 
   const auth = getAuth(); // Setting constant variable to get the returned value from getAuth function.
   //Logout function
@@ -25,11 +26,15 @@
 <div class="sidebar-container">
         <div class="sidenav-menu">
             <div class="top-sidenav">
-          <button onclick="location.href='/';" class="{url === '/' ? 'selected' : ''}"
-              on:click="{() => current = '/'}">Profile</button>
+
+              <div class="button-icon">
+ <button onclick="location.href='/';" class="{url === '/' ? 'selected' : ''}"
+              on:click="{() => current = '/'}"> Profile </button>
+              </div>
+         
       
               <button onclick="location.href='/mywork';" class="{url === '/mywork' ? 'selected' : ''}"
-              on:click="{() => current = '/mywork'}">My Work</button>
+              on:click="{() => current = '/mywork'}"> My Work</button>
       
               <button onclick="location.href='/portfolio';" class="{url === '/portfolio' ? 'selected' : ''}"
               on:click="{() => current = '/portfolio'}">Portfolio</button>
@@ -71,6 +76,7 @@
 }
 
 button{
+  position: relative;
       height: 2.23rem;
       width: 100%;
       padding-left: 1.23rem;
@@ -105,6 +111,8 @@ button{
   button.selected:hover {
       border: 0.088rem solid var(--light);
 	}
+
+
 
 
 </style>
