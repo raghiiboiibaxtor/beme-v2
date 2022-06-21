@@ -1,15 +1,10 @@
 <script>
-  
-    import UserCard from "../components/cards/card_profile.svelte";
-   
+   import UserCard from "../components/cards/card_profile.svelte";
    import AddFile from "../components/files/addfile.svelte";
    import CardFavExp from "../components/cards/card_favexp.svelte";
    import CardEducation from "../components/cards/card_education.svelte";
    import CardPastWork from "../components/cards/card_paswork.svelte";
    import CardSkills from "../components/cards/card_skills.svelte";
-
-   
- 
  </script>
  
  <!--HTML BEGINS-->
