@@ -8,7 +8,7 @@
 	import Skills from "../components/forms/userforms/skills.svelte";
 </script>
 
-<!--HTML BEGINS-->
+<!--HTML BEGINS
 <div class="profile-container">
 <div class="cards-horizontal-flex">
 	<div class="left-items">
@@ -30,9 +30,9 @@
 		</div>
 	</div>
 </div>	
-</div>
+</div>-->
 
-<!--CSS BEGINS-->
+<!--CSS BEGINS
 <style>
 
 .profile-container{
@@ -80,4 +80,4 @@
 
 }
 
-</style>
+</style>-->

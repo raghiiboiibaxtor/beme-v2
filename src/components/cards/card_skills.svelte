@@ -60,6 +60,7 @@
             </div>
            </div>
            <div class="margin-break">
+            <h4 class="card-h5-skills">Skills</h4>
            <div class="horizontal-flex">
             <div class="left-skills">
                 <SkillBubbles _skill={_info._skills.skill1}/>
