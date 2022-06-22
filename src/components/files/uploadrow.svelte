@@ -13,7 +13,8 @@
       const userId = localStorage.getItem("uid");
       const path = `${userId}/${folder}`;
   
-      let myDropzone = new Dropzone(`#my-form-${folder}`);
+      let myDropzone = new Dropzone(`#my-form-${folder}`, {dictDefaultMessage: "Drop files here."});
+     
       myDropzone.options.disablePreviews = true;
       myDropzone.on("addedfile", (upload) => {
         let storageRef = ref(storage, `${path}/${upload.name}`);
@@ -26,10 +27,20 @@
   </script>
   
   <!-- Example of a form that Dropzone can take over -->
-  <form action="/target" class="dropzone" id="my-form-{folder}" />
+  <form action="/target" class="dropzone" id="my-form-{folder}"/>
   
   <style>
     .dropzone {
-      border: 2px dashed black;
+      margin-top: 1.23rem;
+      border: 2.23px dashed rgba(112, 156, 212, 0.55);
+      box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
+      border-radius: 12px;
+      background-color: rgba(112, 156, 212, 0.23);
+      opacity: 88%;
+      font-family: 'Montserrat' !important;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 0.33px;
     }
+
   </style>

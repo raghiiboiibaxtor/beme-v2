@@ -5,6 +5,9 @@
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
     import SkillBubbles from "../elements/skillbubbles.svelte";
+    import Skills from "../forms/userforms/skills.svelte";
+   import EditButton from "../elements/editbutton.svelte";
+    import Cancelbutton from "../elements/cancelbutton.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -25,6 +28,7 @@
     // Creating array 
     let _userid;
     let _userdetails = [];
+    let clicked = false;
 
     //Reading Collection 'AllUsers' from Firestore
     const _collection = collection(_firestore_, "AllUsers");
@@ -49,10 +53,12 @@
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
 
-
+{#if clicked === false}
 <div class="skill-body-container">
     <h2 class="card-h2">Skills</h2>
     <div class="card-container">
+        <div class="edit-button"><button on:click={() => clicked = !clicked}>
+            <EditButton/></button></div>
         <div class="vertical-flex-control-box">
             <div class="title-display-flex-top">
                 <h4 class="card-h5">Top Trait</h4>
@@ -82,6 +88,19 @@
     </div>
 </div>
 
+
+
+{:else}
+<div class="body-container">
+    <h2 class="card-h2">About Me</h2>
+    <div class="edit-card-container">
+        <div class="cancel-button">
+        <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
+<Skills/>
+</div>
+</div>
+
+{/if}
 <!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->
 {/if}

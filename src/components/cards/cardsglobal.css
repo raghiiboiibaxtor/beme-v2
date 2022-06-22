@@ -1,21 +1,21 @@
 .body-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     width: 333px;
 }
 
 .skill-body-container{
-    display: flex;
-    flex-direction: column;
-    width: 444px;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 444px !important;
 }
 
 .card-container{
-    width: 100%;
+    width: 100% !important;
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: space-between;
+    flex-direction: column !important;
+    align-items: left !important;
+    justify-content: space-between !important;
     padding-top: 0.55rem;
     padding-left: 1.23rem;
     padding-right: 1.23rem;
@@ -36,14 +36,14 @@
 }
 
 .horizontal-flex{
-    width: 100%;
+    width: 100% !important;
     display: flex;
     flex-direction: row;
 }
 
 
 .left-items{
-    width: auto;
+    width: auto !important;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -168,6 +168,42 @@
     margin-top: 0.23rem;
 }
 
+
+
+.edit-button{
+    position: absolute;
+    z-index: 2;
+    align-items: right;
+    margin-top: -0.88rem;
+    margin-left: -1.23rem;
+    display: none;
+}
+
+
+.card-container:hover .edit-button{
+   display: block;
+}
+
+.cancel-button{
+    position: absolute;
+    z-index: 2;
+    align-items: right;
+    margin-left: 15.23rem;
+    display: none;
+}
+
+.edit-card-container .cancel-button{
+    display: block;
+ }
+
+button{
+    border: none !important;
+}
+
+button:active{
+    border: none !important;
+    background: none !important;
+}
 
 
 

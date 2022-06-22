@@ -2,15 +2,15 @@
     import Icon from '@iconify/svelte';
     </script>
     
-    <div class="edit-button-flex">
+    <div class="cancel-button-flex">
     <button>
-        <Icon icon="eva:edit-2-outline" />
+        <Icon icon="ic:round-cancel" />
     </button>
     </div>
     
     <style>
     
-        .edit-button-flex{
+        .cancel-button-flex{
             width: 2.3rem !important;
             display: flex;
             flex-direction: column;
