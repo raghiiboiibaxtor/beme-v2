@@ -151,10 +151,12 @@
   }
 
   .page-slot{
+    
     margin: 0;
     margin-top: 4.23rem;
     padding: 0;
 }
+
 
 
 }

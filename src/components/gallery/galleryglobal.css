@@ -67,3 +67,10 @@ img{
     max-height: 8rem;
     border-radius: 1.23rem;
 }
+
+
+@media only screen and (max-width: 777px){
+	section{
+		width:100% !important;
+	}
+}

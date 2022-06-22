@@ -49,4 +49,9 @@
         text-align: center !important;
       }
 
+
+
+@media only screen and (max-width: 777px){
+  
+}
   </style>

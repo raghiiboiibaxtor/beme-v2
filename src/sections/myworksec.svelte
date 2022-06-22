@@ -109,5 +109,18 @@ button:hover{
     bottom: 0;
     z-index: 100;
 }
+
+@media only screen and (max-width: 777px){
+
+    .gallery-container{
+    width: 100%;
+    margin-bottom: 1.23rem;
+    margin-left: 1.23rem;
+}
+
+
+
+
+}
 </style>
 

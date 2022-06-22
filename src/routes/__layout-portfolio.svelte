@@ -9,13 +9,10 @@ onMount(()=> {
 loaded = true;
 });
 
-function Navigate(){
-  goto("/");
-}
 </script>
 
 <!--HTML BEGINS-->
-{#if loaded = true}
+{#if loaded === true}
   <div class="page-layout">
   <div class="image-div">
     <a href="http://localhost:3000/">

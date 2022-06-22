@@ -7,7 +7,7 @@
 
 
 <ProfileSec/>
-<Addfile/>
+
 
 <!--HTML BEGINS
 <div class="profile-container">
