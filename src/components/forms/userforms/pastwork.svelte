@@ -58,9 +58,9 @@
 <div class="body-container">
 <div class="form-container">
   <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
-  <h1 class="form-heading"> Detailed Experience </h1>
+  <h1 class="form-heading"> Past Experience </h1>
   <h1 class="form-subtitle"> The journey that got you here.</h1>
-  <form on:submit|preventDefault={handleSubmit} class="form-card">
+  <form on:submit={handleSubmit} class="form-card">
       <div class="input-title-flex">
       <label for="title" class="label-input">Job Title</label>
       <!-- Binding firestore variables to ui and grabbing user entered text -->
@@ -80,7 +80,7 @@
             type="text"
             bind:value={_experience._experience1.company}
             bind:this={inputElement}
-            placeholder= "What company did you experience for?"
+            placeholder= "Where was it?"
             class="form-control"
         />
         </div>
@@ -91,19 +91,27 @@
               type="text"
               bind:value={_experience._experience1.date}
               bind:this={inputElement}
-              placeholder= "How long did you experience here?"
+              placeholder= "How long was it?"
               class="form-control"
           />
           </div>            
         <div class="input-title-flex">
-          <label for="title" class="label-input">Skills Applied</label>
+          <label for="title" class="label-input">Top Skill</label>
           <input
               type="text"
               bind:value={_experience._experience1.skill_applied}
               bind:this={inputElement}
-              placeholder= "What skills did you applied or learned."
+              placeholder= "Eg: Teamwork"
               class="textarea-form-control"
           />
+          <div class="input-title-flex">
+          <input
+          type="text"
+          bind:value={_experience._experience1.skill2_applied}
+          bind:this={inputElement}
+          placeholder= "Eg: Technical thinking"
+          class="textarea-form-control"
+      /></div>
           </div>       
       <div class="button-flex">
       <button class="button" >Save </button>

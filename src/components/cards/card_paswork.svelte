@@ -77,7 +77,7 @@
                 <div class="horizontal-flex">
                     <div class="left-skills">
                         <SkillBubbles _skill={_info._experience1.skill_applied}/>
-                        <SkillBubbles _skill={_info._skills.skill2}/>
+                        <SkillBubbles _skill={_info._experience1.skill2_applied}/>
                        
                     </div>
                     </div>

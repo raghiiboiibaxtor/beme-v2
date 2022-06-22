@@ -49,7 +49,7 @@
   <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
   <h1 class="form-heading"> More About Me</h1>
   <h1 class="form-subtitle"> Describe your professional life and goals.</h1>
-  <form on:submit|preventDefault={handleSubmit} class="form-card">
+  <form on:submit={handleSubmit} class="form-card">
 
       <div class="input-title-flex">
       <label for="description" class="label-input"
