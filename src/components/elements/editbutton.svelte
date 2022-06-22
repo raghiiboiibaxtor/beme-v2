@@ -11,7 +11,7 @@
     <style>
     
         .edit-button-flex{
-            width: 2.3rem;
+            width: 2.3rem !important;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -23,18 +23,17 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            width: 2.3rem;
-            height: auto;
+            width: 2.3rem !important;
+            height: 1.77rem !important;
             background-color:#ECF1FE;
             color: var(--main);
             box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.23);
             border-radius: 1.23rem;
-            opacity: 88%;
+            opacity: 77%;
         }
     
         button:hover{
-         opacity: 123%;
+         opacity: 100%;
         }
-    
     
     </style>

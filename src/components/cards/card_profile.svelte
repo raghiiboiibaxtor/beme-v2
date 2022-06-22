@@ -52,15 +52,14 @@
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
 
-
+{#if clicked === false}
 <div class="body-container">
     <h2 class="card-h2">About Me</h2>
     <div class="card-container">
-        <div class="edit-button"><button on:click={() => clicked = !clicked}>
+            <div class="edit-button"><button on:click={() => clicked = !clicked}>
             <EditButton/></button>
         </div>
-        <GrabFile/>
-        
+            <GrabFile/>
         <div class="horizontal-flex"> 
             <div class="left-items"> 
                 <h1 class="card-heading"> {_info._myprofile.firstname}</h1>
@@ -98,9 +97,12 @@
                 <h3 class="card-display-text">{_info._userabout.goals}</h3>
             </div>
        </div>
-       
     </div>
 </div>
+
+{:else}
+<UserProfile/>
+{/if}
 
 <!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->

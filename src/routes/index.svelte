@@ -7,10 +7,13 @@
 	import Education from "../components/forms/userforms/education.svelte";
 	import Skills from "../components/forms/userforms/skills.svelte";
 	import ProfileSec from "../sections/profilesec.svelte";
+	import Grabfile from "../components/files/grabfile.svelte";
 </script>
 
 
 <ProfileSec/>
+<Grabfile/>
+
 <!--HTML BEGINS
 <div class="profile-container">
 <div class="cards-horizontal-flex">

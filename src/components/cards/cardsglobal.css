@@ -170,6 +170,29 @@
 
 
 
+.edit-button{
+    position: absolute;
+    z-index: 2;
+    align-items: right;
+    margin-top: -0.88rem;
+    margin-left: 14rem;
+    display: none;
+}
+
+.card-container:hover .edit-button{
+   display: block;
+}
+
+button{
+    border: none !important;
+}
+
+button:active{
+    border: none !important;
+    background: none !important;
+}
+
+
 
 
 /****************** MEDIA QUERY BEGINS *************************/
