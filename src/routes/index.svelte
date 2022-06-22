@@ -6,8 +6,11 @@
 	import PastWork from "../components/forms/userforms/pastwork.svelte";
 	import Education from "../components/forms/userforms/education.svelte";
 	import Skills from "../components/forms/userforms/skills.svelte";
+	import ProfileSec from "../sections/profilesec.svelte";
 </script>
 
+
+<ProfileSec/>
 <!--HTML BEGINS
 <div class="profile-container">
 <div class="cards-horizontal-flex">

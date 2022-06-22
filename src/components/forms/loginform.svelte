@@ -10,6 +10,40 @@
   
   let _info = {
       email: "",
+        _userabout:{
+        currentrole: "",
+        interest: "",
+        level_experience: "",
+        goals: "" },
+
+      _myprofile:{
+        firstname: "",
+        lastname: "",
+        workemail: "",
+        phone: "",
+        bio:""
+      }, 
+      _education:{
+        qualification: "",
+        study_level: "",
+        study_place: "",
+        fav_subject: "",
+        year: ""},
+      
+      _traits:{trait1:""},
+      _skills:{skill1:"",skill2:"",skill3:"",skill4:"", skill5:"",skill6:"",skill7:"",skill8:""},
+
+      _favexperience:{
+        worktitle: "",
+        time: "",
+        newskill: "",
+        favskillsapplied:{favskill1:"",favskill2:"",favskill3:"",favskill4:""}
+      },
+      _experience1:{role: "",
+      company: "",
+      date: "",
+      skill_applied:""},
+
     };
 
   const addUserToFirestore = async () => {

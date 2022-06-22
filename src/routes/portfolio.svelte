@@ -1,10 +1,10 @@
 <script>
-  import ProfileSec from "../sections/profilesec.svelte";
+  import PortfolioSec from "../sections/portfoliosec.svelte";
   import MyWorkSec from "../sections/myworksec.svelte";
   
 </script>
 
-<ProfileSec/>
+<PortfolioSec/>
 <MyWorkSec/>
 
 
