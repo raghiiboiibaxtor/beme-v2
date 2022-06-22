@@ -4,11 +4,9 @@
     import {_firestore_} from "../../routes/firebase/firebase.js"; 
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
-    import GrabFile from "../files/grabfile.svelte";
-    import LinkBar from "../links/linkbar.svelte";
-    import UserProfile from "../forms/userforms/userprofile.svelte";
-    import EditButton from "../elements/editbutton.svelte";
-    import Cancelbutton from "../elements/cancelbutton.svelte";
+    import SkillBubbles from "../elements/skillbubbles.svelte";
+
+
     // Grabbing auth from firebase
     const auth = getAuth();
     let _user;
@@ -28,7 +26,6 @@
     // Creating array 
     let _userid;
     let _userdetails = [];
-    let clicked = false;
 
     //Reading Collection 'AllUsers' from Firestore
     const _collection = collection(_firestore_, "AllUsers");
@@ -53,65 +50,42 @@
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
 
-{#if clicked === false}
-<div class="body-container">
-    <h2 class="card-h2">About Me</h2>
+
+<div class="skill-body-container">
+    <h2 class="card-h2">Favourite Experience</h2>
     <div class="card-container">
-            <div class="edit-button"><button on:click={() => clicked = !clicked}>
-            <EditButton/></button>
-        </div>
-            <GrabFile/>
-        <div class="horizontal-flex"> 
-            <div class="left-items"> 
-                <h1 class="card-heading"> {_info._myprofile.firstname}</h1>
-                <h1 class="card-heading">{_info._myprofile.lastname}</h1>
-            </div>
-            </div>
-            <div class="vertical-flex-control-box">
-            <h3 class="card-subheading">{_info._myprofile.bio}</h3>
-            <div class="horizontal-flex">
-                <div class="left-items">
-                    <p class="small-text">{_info._myprofile.pronouns}</p>
-                </div>
-                <div class="right-items">
-                    <p class="small-text"> {_info._myprofile.workemail}</p>
-                </div>
-        </div>
-        <LinkBar/>
-        <hr class="underline-flex">
-        </div>
         <div class="vertical-flex-control-box">
-            <div class="title-display-flex">
-                <h4 class="card-h5">Current Role</h4>
-                <h3 class="card-display-text">{_info._userabout.currentrole}</h3>
+            <div class="title-display-flex-top">
+                <h4 class="card-h5">Title</h4>
+                <h3 class="card-display-text">{_info._favexperience.worktitle}</h3>
             </div>
             <div class="title-display-flex">
                 <h4 class="card-h5">Field of Interest</h4>
-                <h3 class="card-display-text">{_info._userabout.interest}</h3>
+                <h3 class="card-display-text">{_info._favexperience.time}</h3>
             </div>
             <div class="title-display-flex">
-                <h4 class="card-h5">Level of Experience</h4>
-                <h3 class="card-display-text">{_info._userabout.level_experience}</h3>
+                <h4 class="card-h5">New Skill Learned</h4>
+                <h3 class="card-display-text">{_info._favexperience.newskill}</h3>
             </div>
             <div class="title-display-flex">
-                <h4 class="card-h5">Professional Goals</h4>
-                <h3 class="card-display-text">{_info._userabout.goals}</h3>
+                <h4 class="card-h5">Skills Applied</h4>
+                <div class="horizontal-flex">
+                    <div class="left-skills">
+                        <SkillBubbles _skill={_info._skills.skill1}/>
+                        <SkillBubbles _skill={_info._skills.skill2}/>
+                       
+                    </div>
+                    <div class="right-skills">
+                        <SkillBubbles _skill={_info._skills.skill3}/>
+                        <SkillBubbles _skill={_info._skills.skill4}/>
+        
+                    </div>
+                    </div>
             </div>
        </div>
+       
     </div>
 </div>
-
-{:else}
-<div class="body-container">
-    <h2 class="card-h2">About Me</h2>
-    <div class="edit-card-container">
-        <div class="cancel-button">
-        <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
-<UserProfile/>
-</div>
-</div>
-
-{/if}
 
 <!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->

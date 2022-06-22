@@ -5,9 +5,6 @@
     import { onDestroy } from "svelte";
     import "./cardsglobal.css";
     import SkillBubbles from "../elements/skillbubbles.svelte";
-    import FavExperience from "../forms/userforms/favexperience.svelte";
-    import EditButton from "../elements/editbutton.svelte";
-    import Cancelbutton from "../elements/cancelbutton.svelte";
 
     // Grabbing auth from firebase
     const auth = getAuth();
@@ -28,7 +25,6 @@
     // Creating array 
     let _userid;
     let _userdetails = [];
-    let clicked = false;
 
     //Reading Collection 'AllUsers' from Firestore
     const _collection = collection(_firestore_, "AllUsers");
@@ -53,59 +49,39 @@
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
 
-{#if clicked === false}
+
 <div class="skill-body-container">
-    <h2 class="card-h2">Favourite Experience</h2>
+    <h2 class="card-h2">Skills</h2>
     <div class="card-container">
-        <div class="edit-button"><button on:click={() => clicked = !clicked}>
-            <EditButton/></button>
-        </div>
         <div class="vertical-flex-control-box">
             <div class="title-display-flex-top">
-                <h4 class="card-h5">Title</h4>
-                <h3 class="card-display-text">{_info._favexperience.worktitle}</h3>
+                <h4 class="card-h5">Top Trait</h4>
+                <h3 class="card-display-text">{_info._traits.trait1}</h3>
             </div>
-            <div class="title-display-flex">
-                <h4 class="card-h5">Field of Interest</h4>
-                <h3 class="card-display-text">{_info._favexperience.time}</h3>
+           </div>
+           <div class="margin-break">
+            <h4 class="card-h5-skills">Skills</h4>
+           <div class="horizontal-flex">
+            <div class="left-skills">
+                <SkillBubbles _skill={_info._skills.skill1}/>
+                <SkillBubbles _skill={_info._skills.skill2}/>
+                <SkillBubbles _skill={_info._skills.skill3}/>
+                <SkillBubbles _skill={_info._skills.skill4}/>
+               
             </div>
-            <div class="title-display-flex">
-                <h4 class="card-h5">New Skill Learned</h4>
-                <h3 class="card-display-text">{_info._favexperience.newskill}</h3>
+            <div class="right-skills">
+              
+                <SkillBubbles _skill={_info._skills.skill5}/>
+                <SkillBubbles _skill={_info._skills.skill6}/>
+                <SkillBubbles _skill={_info._skills.skill7}/>
+                <SkillBubbles _skill={_info._skills.skill8}/>
+
             </div>
-            <div class="title-display-flex">
-                <h4 class="card-h5">Skills Applied</h4>
-                <div class="horizontal-flex">
-                    <div class="left-skills">
-                        <SkillBubbles _skill={_info._skills.skill1}/>
-                        <SkillBubbles _skill={_info._skills.skill2}/>
-                       
-                    </div>
-                    <div class="right-skills">
-                        <SkillBubbles _skill={_info._skills.skill3}/>
-                        <SkillBubbles _skill={_info._skills.skill4}/>
-        
-                    </div>
-                    </div>
-            </div>
-       </div>
-       
+    </div>
+</div>
     </div>
 </div>
 
-
-
-{:else}
-<div class="body-container">
-    <h2 class="card-h2">About Me</h2>
-    <div class="edit-card-container">
-        <div class="cancel-button">
-        <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
-<FavExperience/>
-</div>
-</div>
-
-{/if}
 <!-- Each loop, executing the _userdetails[] array -->
 <!-- Correct data displaying -->
 {/if}

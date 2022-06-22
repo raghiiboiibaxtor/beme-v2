@@ -175,9 +175,10 @@
     z-index: 2;
     align-items: right;
     margin-top: -0.88rem;
-    margin-left: 14rem;
+    margin-left: -1.23rem;
     display: none;
 }
+
 
 .card-container:hover .edit-button{
    display: block;
