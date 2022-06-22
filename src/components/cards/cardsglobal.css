@@ -1,7 +1,7 @@
 .body-container{
     display: flex;
     flex-direction: column !important;
-    width: 333px !important;
+    width: 333px;
 }
 
 .skill-body-container{
@@ -182,6 +182,18 @@
 .card-container:hover .edit-button{
    display: block;
 }
+
+.cancel-button{
+    position: absolute;
+    z-index: 2;
+    align-items: right;
+    margin-left: 15.23rem;
+    display: none;
+}
+
+.edit-card-container .cancel-button{
+    display: block;
+ }
 
 button{
     border: none !important;

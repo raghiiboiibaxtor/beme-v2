@@ -7,7 +7,9 @@
     import GrabFile from "../files/grabfile.svelte";
     import LinkBar from "../links/linkbar.svelte";
     import EditButton from "../elements/editbutton.svelte";
+    import CancelButton from "../elements/cancelbutton.svelte";
     import UserProfile from "../forms/userforms/userprofile.svelte";
+import Cancelbutton from "../elements/cancelbutton.svelte";
     // Grabbing auth from firebase
     const auth = getAuth();
     let _user;
@@ -101,7 +103,15 @@
 </div>
 
 {:else}
+<div class="body-container">
+    <h2 class="card-h2">About Me</h2>
+    <div class="edit-card-container">
+        <div class="cancel-button">
+        <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
 <UserProfile/>
+</div>
+</div>
+
 {/if}
 
 <!-- Each loop, executing the _userdetails[] array -->

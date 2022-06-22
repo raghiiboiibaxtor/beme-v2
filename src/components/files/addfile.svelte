@@ -72,7 +72,6 @@
       folder="userfile"
       functionProp={() => getFileData()}
     />
-   
   {/if}
 
   <img id="myimg" alt=""/> 

@@ -4,6 +4,7 @@
   import {_firestore_} from "../../../routes/firebase/firebase.js"; //Importing Firestore component that was initialised in firebase.js
   import {updateDoc,onSnapshot,doc, getDoc,runTransaction} from "firebase/firestore";
   import { getAuth,onAuthStateChanged} from "firebase/auth";
+  import UploadRow from "../../files/uploadrow.svelte";
 
   // Creating list of variables that will pass data to Firestore ()
   let _myprofile = {
@@ -51,9 +52,10 @@
 <div class="body-container">
   <div class="form-container">
   <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
-  <h1 class="form-heading"> My Profile</h1>
-  <h1 class="form-subtitle"> Enter your details to get started.</h1>
-  <form on:submit|preventDefault={handleSubmit} class="form-card">
+  <h1 class="form-heading"> Editing Details</h1>
+  <h1 class="form-subtitle"> Make sure to save your changes.</h1>
+    <UploadRow/>
+  <form on:submit={handleSubmit} class="form-card">
       <div class="input-title-flex">
       <label for="title" class="label-input">First Name</label>
       <!-- Binding firestore variables to ui and grabbing user entered text -->
@@ -90,11 +92,11 @@
         </div>
         <div class="input-title-flex">
           <label for="description" class="label-input"
-              >Phone Number</label
+              >Pronouns</label
           >
           <input
               type="text"
-              bind:value={_myprofile._myprofile.phone}
+              bind:value={_myprofile._myprofile.pronouns}
               bind:this={inputElement}
               placeholder="Enter your contact number."
               class="form-control"
