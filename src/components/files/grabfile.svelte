@@ -9,7 +9,7 @@
   
     let img;
     
-    getDownloadURL(ref(storage, '_MG_0088.jpg')) // what I think will work =>  `${uid}/userfile/${upload.name}` (we'll need to grab uid & filename first)
+    getDownloadURL(ref(storage, 'jcKdaGySv9ZzhzersLuRYIRbRZ13/userfile/lesedingoma.png')) // what I think will work =>  `${uid}/userfile/${upload.name}` (we'll need to grab uid & filename first)
     .then((url) => {
       // `url` is the download URL for targeted image'
       // This can be downloaded directly:

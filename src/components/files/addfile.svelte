@@ -42,7 +42,7 @@
 
   let img;
   
-  getDownloadURL(ref(storage, '_MG_0088.jpg'))
+  getDownloadURL(ref(storage, 'jcKdaGySv9ZzhzersLuRYIRbRZ13/userfile/lesedingoma.png'))
   .then((url) => {
     // `url` is the download URL for targeted image'
     // This can be downloaded directly:
@@ -73,7 +73,6 @@
     />
   {/if}
 
-  <img id="myimg" alt=""/> 
   
  
  

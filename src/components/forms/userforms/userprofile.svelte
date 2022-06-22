@@ -13,7 +13,12 @@
     lastname: "",
     workemail: "",
     phone: "",
-    bio:""}};
+    bio:""},
+    _userabout:{
+    currentrole: "",
+    interest: "",
+    level_experience: "",
+    goals: ""}};
 
     
    let _showprofile=["name","surname","email"]
@@ -55,7 +60,7 @@
   <h1 class="form-heading"> Editing Details</h1>
   <h1 class="form-subtitle"> Make sure to save your changes.</h1>
     <UploadRow/>
-  <form on:submit={handleSubmit} class="form-card">
+  <form on:submit|preventDefault={handleSubmit} class="form-card">
       <div class="input-title-flex">
       <label for="title" class="label-input">First Name</label>
       <!-- Binding firestore variables to ui and grabbing user entered text -->
@@ -115,6 +120,59 @@
           class="textarea-form-control"
       />
       </div>
+
+
+      <div class="input-title-flex">
+        <label for="description" class="label-input"
+            >Current Role</label
+        >
+        <input
+            type="text"
+            bind:value={_myprofile._userabout.currentrole}
+            bind:this={inputElement}
+            placeholder="Add your current role"
+            class="form-control"
+        />
+        </div>
+  
+        <div class="input-title-flex">
+        <label for="description" class="label-input"
+            >Field of Interest</label
+        >
+        <input
+            type="text"
+            bind:value={_myprofile._userabout.interest}
+            bind:this={inputElement}
+            placeholder="What are you specialising in?"
+            class="form-control"
+        />
+        </div>
+  
+        <div class="input-title-flex">
+        <label for="description" class="label-input"
+            >Level of Experience</label
+        >
+        <input
+            type="text"
+            bind:value={_myprofile._userabout.level_experience}
+            bind:this={inputElement}
+            placeholder="What is your level of experience?"
+            class="form-control"
+        />
+        </div>
+  
+        <div class="input-title-flex">
+        <label for="description" class="label-input"
+            >Goals</label
+        >
+        <textarea
+            type="text"
+            bind:value={_myprofile._userabout.goals}
+            bind:this={inputElement}
+            placeholder="Shoot for the stars in 123 characters."
+            class="textarea-form-control"
+        />
+        </div>
       <div class="button-flex">
       <button class="button" >Save </button>
       </div>

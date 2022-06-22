@@ -33,7 +33,7 @@
 
     .dropzone {
       margin-top: 1.23rem;
-      border: 2.23px dashed var(--light) !important;
+      border: 2.23px dashed var(--light);
       box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
       border-radius: 12px;
       background-color: var(--light) !important;

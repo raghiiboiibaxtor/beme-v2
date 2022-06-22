@@ -60,7 +60,7 @@
   <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
   <h1 class="form-heading"> Past Experience </h1>
   <h1 class="form-subtitle"> The journey that got you here.</h1>
-  <form on:submit={handleSubmit} class="form-card">
+  <form on:submit|preventDefault={handleSubmit} class="form-card">
       <div class="input-title-flex">
       <label for="title" class="label-input">Job Title</label>
       <!-- Binding firestore variables to ui and grabbing user entered text -->

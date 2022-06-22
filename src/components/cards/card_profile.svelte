@@ -7,6 +7,7 @@
     import GrabFile from "../files/grabfile.svelte";
     import LinkBar from "../links/linkbar.svelte";
     import UserProfile from "../forms/userforms/userprofile.svelte";
+    import AboutMe from "../forms/userforms/aboutme.svelte";
     import EditButton from "../elements/editbutton.svelte";
     import Cancelbutton from "../elements/cancelbutton.svelte";
     // Grabbing auth from firebase
@@ -108,6 +109,7 @@
         <div class="cancel-button">
         <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
 <UserProfile/>
+
 </div>
 </div>
 

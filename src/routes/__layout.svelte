@@ -134,8 +134,9 @@
   width: calc(100% - 11.23rem);
   height: 100%;
   margin-left: 10.23rem;
-  margin-top: 5rem;
+  margin-top: 5.23rem;
   padding-left: 1.23rem;
+  padding-top: 0.55rem;
 }
 
 

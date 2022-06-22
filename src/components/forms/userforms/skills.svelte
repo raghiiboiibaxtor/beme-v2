@@ -45,7 +45,7 @@
   <!-- Task Form  handleSubmit() called when form is submitted. Default form response prevented-->
   <h1 class="form-heading"> Professional Skills </h1>
   <h1 class="form-subtitle"> The only toolbox you need.</h1>
-  <form on:submit={handleSubmit} class="form-card">
+  <form on:submit|preventDefault={handleSubmit} class="form-card">
       <div class="input-title-flex">
       <label for="title" class="label-input">Traits</label>
       <!-- Binding firestore variables to ui and grabbing user entered text -->
