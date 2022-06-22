@@ -11,6 +11,7 @@
   import { isLoggedIn } from "./stores/authstore.js";
   import Navbar from "../components/layout/navbar.svelte";
   import Sidebar from "../components/layout/sidebar.svelte";
+  //import {Image} from "../content/images/Spin-1s-200px";
   
   let login = false;
   // Mounting authentication.
@@ -31,6 +32,7 @@
         login = false; 
       }
     });
+   
   });
 </script>
 
@@ -49,6 +51,11 @@
   </div>
 </div>
 </div>
+{:else}
+<div class="loading-page-layout">
+  <img id="loading-logo" src="src/content/images/BeMeLogo.png" alt="Page is loading...">
+  <img id="loading-spinner" src="/Spin-1s-200px.svg" alt="Page is loading...">
+</div>
 {/if}
 
 <!--CSS BEGINS-->
@@ -63,6 +70,40 @@
  width: 100%;
  height:100%;
  margin: 0 auto;
+}
+
+#loading-logo{
+  width: 5.23rem;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1.23rem;
+}
+
+#loading-spinner{
+  width: 5.23rem;
+  height: auto;
+  margin: 1.23rem;
+}
+
+.loading-page-layout{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(
+        45deg,
+        hsl(237deg 81% 60%) 0%,
+        hsl(218deg 94% 54%) 20%,
+        hsl(210deg 100% 50%) 40%,
+        hsl(205deg 100% 50%) 60%,
+        hsl(201deg 100% 50%) 80%,
+        hsl(202deg 100% 61%) 100% );
+  z-index: 1000;
 }
 
 .top-nav{

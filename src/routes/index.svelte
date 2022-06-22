@@ -1,18 +1,13 @@
 <!--JAVASCRIPT BEGINS-->
 <script>
-	import AboutMe from "../components/forms/userforms/aboutme.svelte";
-	import UserProfile from "../components/forms/userforms/userprofile.svelte";
-	import FavExperience from "../components/forms/userforms/favexperience.svelte";
-	import PastWork from "../components/forms/userforms/pastwork.svelte";
-	import Education from "../components/forms/userforms/education.svelte";
-	import Skills from "../components/forms/userforms/skills.svelte";
 	import ProfileSec from "../sections/profilesec.svelte";
 	import Grabfile from "../components/files/grabfile.svelte";
+	import Addfile from "../components/files/addfile.svelte";
 </script>
 
 
 <ProfileSec/>
-<Grabfile/>
+<Addfile/>
 
 <!--HTML BEGINS
 <div class="profile-container">
