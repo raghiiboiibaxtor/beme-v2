@@ -6,7 +6,8 @@
     import "./cardsglobal.css";
     import GrabFile from "../files/grabfile.svelte";
     import LinkBar from "../links/linkbar.svelte";
-
+    import EditButton from "../elements/editbutton.svelte";
+    import UserProfile from "../forms/userforms/userprofile.svelte";
     // Grabbing auth from firebase
     const auth = getAuth();
     let _user;
@@ -26,6 +27,7 @@
     // Creating array 
     let _userid;
     let _userdetails = [];
+    let clicked = false;
 
     //Reading Collection 'AllUsers' from Firestore
     const _collection = collection(_firestore_, "AllUsers");
@@ -54,7 +56,11 @@
 <div class="body-container">
     <h2 class="card-h2">About Me</h2>
     <div class="card-container">
+        <div class="edit-button"><button on:click={() => clicked = !clicked}>
+            <EditButton/></button>
+        </div>
         <GrabFile/>
+        
         <div class="horizontal-flex"> 
             <div class="left-items"> 
                 <h1 class="card-heading"> {_info._myprofile.firstname}</h1>
