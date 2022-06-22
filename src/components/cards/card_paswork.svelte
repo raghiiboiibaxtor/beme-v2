@@ -77,7 +77,7 @@
                 <div class="horizontal-flex">
                     <div class="left-skills">
                         <SkillBubbles _skill={_info._experience1.skill_applied}/>
-                        <SkillBubbles _skill={_info._skills.skill2}/>
+                        <SkillBubbles _skill={_info._experience1.skill2_applied}/>
                        
                     </div>
                     </div>
@@ -89,7 +89,7 @@
 
 {:else}
 <div class="body-container">
-    <h2 class="card-h2">About Me</h2>
+    <h2 class="card-h2">Past Experience</h2>
     <div class="edit-card-container">
         <div class="cancel-button">
         <button on:click={() => clicked = !clicked}><Cancelbutton/></button></div>
