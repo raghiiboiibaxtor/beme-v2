@@ -68,7 +68,7 @@
     
     .profile-container{
       width: auto;
-     
+     margin: 0 auto;
     }
     
     .cards-horizontal-flex{
@@ -87,16 +87,13 @@
     }
 
     .nested-vertical-flex{
-   
       display: flex;
       flex-direction: column;
-      
     }
 
     .nested-vertical2-flex{
       display: flex;
       flex-direction: column;
-     
     }
 
     .top-row-flex{
@@ -119,17 +116,50 @@
     @media only screen and (max-width: 777px){
     
     .profile-container{
-      width: 100%;
-      margin: 0 auto;
-      padding-top: 0.88rem;
-      padding-left: 0;
+      width: auto;
     }
      
      .cards-horizontal-flex, .right-items{
      width: 100%;
      display: flex;
      flex-direction: column;
-     justify-content: none;
+     justify-content: left;
+    }
+
+
+
+ .right-items{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-top: 1.23rem;
+    }
+
+    .nested-vertical-flex{
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+ }
+
+ .nested-vertical2-flex{
+   width: 100%;
+    display: flex;
+    flex-direction: column;
+   margin-right: 2.23rem;
+   margin-top: 1.23rem;
+ }
+
+ .top-row-flex{
+      display: flex;
+      flex-direction: column;
+    
+    }
+
+    .bottom-row-flex{
+      display: flex;
+      flex-direction: column;
+
     }
     
     }

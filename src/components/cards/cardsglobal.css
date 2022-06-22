@@ -219,6 +219,7 @@ button:active{
     width: 444px;
 }
 
+
 .form-heading{
     font-size: 33px;
 }
@@ -229,14 +230,19 @@ button:active{
 
 
 .left-skills{
-    width: auto;
+    width: 100%;
     margin-right: 0.23rem;
 }
 
 
 .right-skills{
-    width: auto;
+    width: 100%;
     margin-left: 0.23rem;
+}
+
+.right-items{
+  
+    width: auto;
 }
 
 

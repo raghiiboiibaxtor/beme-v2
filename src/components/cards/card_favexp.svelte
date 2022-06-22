@@ -77,13 +77,13 @@
                 <h4 class="card-h5">Skills Applied</h4>
                 <div class="horizontal-flex">
                     <div class="left-skills">
-                        <SkillBubbles _skill={_info._skills.skill1}/>
-                        <SkillBubbles _skill={_info._skills.skill2}/>
+                        <SkillBubbles _skill={_info._favexperience.favskillsapplied.favskill1}/>
+                        <SkillBubbles _skill={_info._favexperience.favskillsapplied.favskill2}/>
                        
                     </div>
                     <div class="right-skills">
-                        <SkillBubbles _skill={_info._skills.skill3}/>
-                        <SkillBubbles _skill={_info._skills.skill4}/>
+                        <SkillBubbles _skill={_info._favexperience.favskillsapplied.favskill3}/>
+                        <SkillBubbles _skill={_info._favexperience.favskillsapplied.favskill4}/>
         
                     </div>
                     </div>

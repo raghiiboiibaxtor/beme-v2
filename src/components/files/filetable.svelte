@@ -19,6 +19,7 @@
     function downloadFile(folder, name) {
       const uid = localStorage.getItem("uid");
       let path = `${uid}/${folder}/${name}`;
+
       getDownloadURL(ref(storage, path))
         .then((url) => {
           const link = document.createElement("a");
@@ -51,20 +52,12 @@
   </script>
   
   <table class="table">
-    <thead>
-      <tr>
-        <th style="width: 25%">File Name</th>
-        <th style="width: 25%">Uploaded</th>
-        <th style="width: 25%">File Size</th>
-        <th style="width: 25%">Actions</th>
-      </tr>
-    </thead>
+  
     <tbody>
       {#each data as { name, timeCreated, size }}
         <tr>
-          <th scope="row">{name}</th>
-          <td>{timeCreated.substring(0, 10)}</td>
-          <td>{bytesToSize(size)}</td>
+          <td >{name}</td>
+        
           <td>
             <button
               class="btn btn-primary"
