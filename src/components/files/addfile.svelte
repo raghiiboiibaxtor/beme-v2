@@ -11,6 +11,8 @@
     userfile: [],
   };
 
+  let reference;
+
 
   function getFileData() {
     files = {
@@ -19,7 +21,7 @@
 
     const user = localStorage.getItem("uid");
     refs.forEach((folder) => {
-      let reference = ref(storage, `${user}/${folder}`);
+      reference = ref(storage, `${user}/${folder}`);
       listAll(reference)
         .then((res) => {
           res.items.forEach((itemRef) => {
@@ -62,9 +64,6 @@
 
 </script>
 
-<button>
-  Add User File
-</button>
 <UploadRow folder="userfile" functionProp={() => getFileData()} />
   {#if files.userfile.length > 0}
     <Filetable

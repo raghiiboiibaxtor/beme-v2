@@ -30,13 +30,13 @@
   <form action="/target" class="dropzone" id="my-form-{folder}"/>
   
   <style>
+
     .dropzone {
       margin-top: 1.23rem;
-      border: 2.23px dashed rgba(112, 156, 212, 0.55);
+      border: 2.23px dashed var(--light) !important;
       box-shadow: 1px 4px 4px rgba(82, 101, 165, 0.12);
       border-radius: 12px;
-      background-color: rgba(112, 156, 212, 0.23);
-      opacity: 88%;
+      background-color: var(--light) !important;
       font-family: 'Montserrat' !important;
         font-style: normal;
         font-weight: 500;
