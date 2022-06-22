@@ -10,13 +10,37 @@
   <!--HTML BEGINS-->
   <div class="profile-container">
     <div class="cards-horizontal-flex">
+
       <div class="left-items">
         <div class="nested-vertical-flex">
           <UserCard/>
         </div>
       </div>
+
       <div class="right-items">
-        <div class="nested-horizontal-flex">
+        <div class="nested-vertical-flex">
+            <div class="top-row-flex">
+              <CardFavExp/>
+            </div>
+            <div class="bottom-row-flex">
+              <CardSkills/>
+            </div>
+        </div>
+        <div class="nested-vertical2-flex">
+          <div class="top-row-flex">
+            <CardPastWork/>
+          </div>
+          <div class="bottom-row-flex">
+            <CardEducation/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+     <!--        <div class="nested-horizontal-flex">
           <div class="nested-left-items">
             <div class="divider">
             <CardFavExp/>
@@ -34,53 +58,60 @@
           </div>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
+        -->
+
+
+
+
     <!--CSS BEGINS-->
     <style>
     
     .profile-container{
       width: auto;
-      padding-top: 0.88rem;
      
     }
     
     .cards-horizontal-flex{
+      width: 100%;
       display: flex;
-      justify-content: space-between;
+     
     }
  
-    .left-items{
-     margin-right: 0.55rem;
-    }
-  
-    .divider{
-      margin-bottom: 1.23rem;
-    }
-  
-    .nested-horizontal-flex{
+
+    .right-items{
+      width: 100%;
+   
       display: flex;
       flex-direction: row;
+      justify-content: space-around;
     }
-  
-  
-    .nested-left-items{
-      height: 100%;
-      margin-right: 2.23rem;
+
+    .nested-vertical-flex{
+   
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      
     }
-  
-    .nested-right-items{
+
+    .nested-vertical2-flex{
+      display: flex;
+      flex-direction: column;
      
-      margin-left: 1.23rem;
-      margin-right: 2.23rem;
+    }
+
+    .top-row-flex{
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 1.11rem;
+    }
+
+    .bottom-row-flex{
+      display: flex;
+      flex-direction: row;
       justify-content: space-between;
     }
+  
     
     
     /* MEDIA QUERY BEGINS */
@@ -99,11 +130,6 @@
      display: flex;
      flex-direction: column;
      justify-content: none;
-    }
-    
-    .nested-horizontal-flex{
-     display: flex;
-     flex-direction: column;
     }
     
     }
