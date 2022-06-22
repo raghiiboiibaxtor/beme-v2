@@ -50,7 +50,6 @@
 <!-- If block, finding the relevant userdata based on document auth -->
 {#if _info.userid == _uid && _info.email == _email} 
 
-
 <div class="body-container">
     <h2 class="card-h2">Education</h2>
     <div class="card-container">
