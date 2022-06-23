@@ -31,14 +31,6 @@ QuerySnapshot
     };
 
     let inputElement; // Declaring input element used for binding ui to list variables
-    
-/*
-    // Reading Multiple Documents from Firestore
-      const _collection = query(collection(_firestore_, "AllUsers"), where("workemail", "==", 'lesedingoma@gmail.com'));
-      const _snapshot = onSnapshot(_collection, (querySnapshot) => {
-        const _fireuser = [];
-        */
-
 
        
     let _user = [];
